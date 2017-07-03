@@ -8,6 +8,7 @@
 #include <stlib.h>
 
 // Add your implementation here
+// constructor
 WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 	//initialize the elements in the web crawler object
 	_urlArray = new URLRecod[maxUrls];
@@ -29,5 +30,12 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 		strcpy(_urlArray[i]._description, "");
 		//insert to the URLArray
 		_urlToUrlRecord->insertItem(urlRoots[i], i);
+	}
+}
+
+//implement crawl()
+Webcrawler::crawl(){
+	while(_headURL <= _tailURL){
+		
 	}
 }
