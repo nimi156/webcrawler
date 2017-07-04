@@ -2,7 +2,7 @@
 #include "webcrawler.h"
 #include "openhttp.h"
 
-#include <stdio>
+#include <stdio.h>
 #include <string>
 #include <ctype>
 #include <stdlib>
