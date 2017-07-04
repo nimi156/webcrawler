@@ -2,10 +2,11 @@
 #include "webcrawler.h"
 #include "openhttp.h"
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
+#include <stdio>
+#include <string>
+#include <ctype>
+#include <stdlib>
+#include <cctype>
 
 // Add your implementation here
 
@@ -61,6 +62,23 @@ WebCrawler::crawl(){
 		
 		_headURL++;
 	}
+}
+
+bool
+isWord(char * word){
+	char c;
+	int size = strlen(word);
+
+	if(size <= 1)
+		return false;
+
+	for(int i = 0; i < size; i++){
+		c = word[i];
+
+		if(!isalpha(c))
+			return false;
+	}
+	return true;
 }
 
 //override onCoutentFound
