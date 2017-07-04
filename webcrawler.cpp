@@ -47,7 +47,7 @@ WebCrawler::crawl(){
 		//Fetch the next URL in _headURL
 		char * url = _urlArray[_headURL]._url;
 		int n = 0;
-		char * urlFetched = fetchHTML(url, n);
+		char * urlFetched = fetchHTML(url, &n);
 		
 
 		//increment _headURL
