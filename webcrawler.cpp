@@ -42,6 +42,7 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 
 //size of current description
 int descriptionSize = 0;
+
 //implement crawl()
 void
 WebCrawler::crawl(){
