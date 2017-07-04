@@ -12,7 +12,7 @@
 // constructor
 WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 	//initialize URL array
-	_urlArray = new URLRecod[maxUrls]; 
+	_urlArray = new URLRecord[maxUrls]; 
 	//initialize the number of given urls
 	_nInitialURLs = nurlRoots;
 	//initialize maxUrls
@@ -61,6 +61,7 @@ WebCrawler::writeURLFile(const char * urlFileName){
 }
 
 //write list of words with their urls to file
+void
 WebCrawler::writeWordFile(const char * wordFileName){
 
 }
