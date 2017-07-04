@@ -89,7 +89,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 
 void
 printUsage(){
-	fprintf(stderr, "Usage: webcrawler [-u <maxurls>] url-list\n");
+	fprintf(stderr, "Usage: webcrawl [-u <maxurls>] url-list\n");
 }
 
 //main
