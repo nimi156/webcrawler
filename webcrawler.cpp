@@ -68,7 +68,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 
 //override onCoutentFound
 void
-WebCrawler::onContentFound(char c){
+WebCrawler::onContentFound(char c, int status){
 
 }
 
