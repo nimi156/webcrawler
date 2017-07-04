@@ -8,7 +8,7 @@ git-commit:
 	git add Makefile *.h *.cpp  .local.git.out >> .local.git.out
 	git commit -a -m "Commit web-crawler" >> .local.git.out
 
-webcrawler:
+webcrawler: webcrawler.cpp openhttp.cpp SimpleHTMLParser.cpp
 	g++ -o webcrawler -g webcrawler.cpp openhttp.cpp SimpleHTMLParser.cpp 
 
 clean:
