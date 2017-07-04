@@ -8,15 +8,22 @@
 #include <stlib.h>
 
 // Add your implementation here
+
 // constructor
 WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
-	//initialize the elements in the web crawler object
-	_urlArray = new URLRecod[maxUrls];
-	_nurlRoots = nurlRoots;
+	//initialize URL array
+	_urlArray = new URLRecod[maxUrls]; 
+	//initialize the number of given urls
+	_nInitialURLs = nurlRoots;
+	//initialize maxUrls
 	_maxUrls = maxUrls;
+	//initialize headURL
 	_headURL = 0;
+	//initialize tailURL
 	_tailURL = nurlRoots;
+	//initialize urlToUrlRecord
 	_urlToUrlRecord = new HashTableTemplate<int>();
+	//initailize wordToURLRecordList
 	_wordToURLRecordList = new HashTableTemplate<URLRecordList *>();
 
 	//insert the initial URLs
@@ -35,7 +42,7 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 
 //implement crawl()
 void
-Webcrawler::crawl(){
+WebCrawler::crawl(){
 	while(_headURL <= _tailURL){
 		//Fetch the next URL in _headURL
 		char * url = _urlArray[_headURL]._url;
@@ -45,4 +52,32 @@ Webcrawler::crawl(){
 		//increment _headURL
 		_headURL++;
 	}
+}
+
+//write array of URLs and descriptions to file
+void
+WebCrawler::writeURLFile(const char * urlFileName){
+
+}
+
+//write list of words with their urls to file
+WebCrawler::writeWordFile(const char * wordFileName){
+
+}
+
+//override onCoutentFound
+void
+WebCrawler::onContentFound(char c){
+
+}
+
+//override onAnchorFound
+void
+WebCrawler::onAnchorFound(char * url){
+
+}
+
+//main
+int main(int argc, char ** argv){
+
 }

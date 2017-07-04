@@ -22,7 +22,7 @@ class WebCrawler {
   URLRecord * _urlArray;   // Array of URLs 
   int _headURL;            // Points to the next URL to scan by the web crawler
   int _tailURL;            // Next position unused in the urlArray
-  int _nurlRoots;
+  int _nInitialURLs;	   // Number of the URLs given
 
   HashTableTemplate<int> * _urlToUrlRecord;         //  maps a URL to its index in the URLArray 
   
