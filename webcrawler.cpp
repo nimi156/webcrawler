@@ -132,7 +132,28 @@ WebCrawler::onAnchorFound(char * url){
 //write array of URLs and descriptions to file
 void
 WebCrawler::writeURLFile(const char * urlFileName){
+	FILE * fp;
+	fp = fopen(urlFileName, "w");
 
+	if(fp == NULL)
+		return;
+
+	//loop urlArray
+	for(int i = 0; i < _tailURL; i++){
+		//write its url
+		fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
+		//write its description
+		int j = 0;
+		while(_urlArray[i]._description[j] != '\0'){
+			char c;
+			c = _urlArray[i]._description[j];
+			//allow only char,number,space in description
+			if((int)c == 32 || isalpha(c) || isdigit(c))
+				fprintf(fp, "%c", _urlArray[i]._description[j]);
+			j++;
+		}
+	}
+	fclose(fp);
 }
 
 //write list of words with their urls to file
