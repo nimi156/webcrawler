@@ -97,11 +97,11 @@ WebCrawler::onAnchorFound(char * url){
 	char * httpFormat = new char [12];
 	strcpy(httpFormat, "http://www.");
 	size_t size = 11;
-	bool isFormat = (strnasecmp(httpFormat, url, size) == 0);
+	bool isFormat = (strncasecmp(httpFormat, url, size) == 0);
 
 	if(isFormat & _tailURL < _maxUrls){
 		int n = 0;
-		char * htmlBuffer = fetch(url, &n);
+		char * htmlBuffer = fetchHTML(url, &n);
 
 		//check if the HTML fetched is null
 		bool goodHTML = false;
