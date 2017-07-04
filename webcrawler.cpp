@@ -117,12 +117,13 @@ WebCrawler::onAnchorFound(char * url){
 				isExist = true;
 		}
 		
-		//add url to urlArray
+		//add url to urlArray and urlToUrlRecord
 		if(goodHTML && !isExist){
 			_urlArray[_tailURL]._url = strdup(url);
 			_urlArray[_tailURL]._description = (char *)malloc(500 * sizeof(char));
 			strcpy(_urlArray[_tailURL]._description, "");
 			_tailURL++;
+		
 			_urlToUrlRecord->insertItem(url, _tailURL-1);
 		}
 	}
