@@ -56,7 +56,7 @@ WebCrawler::crawl(){
 		}
 		free(buffer);
 
-		strcat(_urlArray[_headURL]._descpriton, "\0");
+		strcat(_urlArray[_headURL]._description, "\0");
 
 		
 		_headURL++;
