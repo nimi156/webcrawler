@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <stlib.h>
+#include <stdlib.h>
 
 // Add your implementation here
 
