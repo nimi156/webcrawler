@@ -63,6 +63,7 @@ WebCrawler::crawl(){
 	}
 }
 
+//check if it is a valid word
 bool
 isWord(char * word){
 	char c;
@@ -89,7 +90,42 @@ WebCrawler::onContentFound(char c, int status){
 //override onAnchorFound
 void
 WebCrawler::onAnchorFound(char * url){
+	if(url == NULL)
+		return;
 
+	//check format
+	char * httpFormat = new char [12];
+	strcpy(httpFormat, "http://www.");
+	size_t size = 11;
+	bool isFormat = (strnasecmp(httpFormat, url, size) == 0);
+
+	if(isFormat & _tailURL < _maxUrls){
+		int n = 0;
+		char * htmlBuffer = fetch(url, &n);
+
+		//check if the HTML fetched is null
+		bool goodHTML = false;
+		if(htmlBuffer != NULL){
+			goodHTML = true;
+		}
+		free(htmlBuffer);
+
+		//check if the url already exist in the urlArray
+		bool isExist = false;
+		for(int i = 0; i < _tailURL; i++){
+			if(strcmp(url, _urlArray[i]._url) == 0)
+				isExist = true;
+		}
+		
+		//add url to urlArray
+		if(goodHTML && !isExist){
+			_urlArray[_tailURL]._url = strdup(url);
+			_urlArray[_tailURL]._description = (char *)malloc(500 * sizeof(char));
+			strcpy(_urlArray[_tailURL]._description, "");
+			_tailURL++;
+			_urlToUrlRecord->insertItem(url, _tailURL-1);
+		}
+	}
 }
 
 //write array of URLs and descriptions to file
