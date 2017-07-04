@@ -34,8 +34,15 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 }
 
 //implement crawl()
+void
 Webcrawler::crawl(){
 	while(_headURL <= _tailURL){
+		//Fetch the next URL in _headURL
+		char * url = _urlArray[_headURL]._url;
+		char * urlFetched = fetchHTML(url, n);
 		
+
+		//increment _headURL
+		_headURL++;
 	}
 }
