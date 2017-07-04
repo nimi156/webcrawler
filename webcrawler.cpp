@@ -40,6 +40,8 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 	}
 }
 
+//size of current description
+int descriptionSize = 0;
 //implement crawl()
 void
 WebCrawler::crawl(){
@@ -47,24 +49,18 @@ WebCrawler::crawl(){
 		//Fetch the next URL in _headURL
 		char * url = _urlArray[_headURL]._url;
 		int n = 0;
-		char * urlFetched = fetchHTML(url, &n);
-		
+		char * buffer = fetchHTML(url, &n);
 
-		//increment _headURL
+		if(buffer != NULL){
+			parse(buffer, n);
+		}
+		free(buffer);
+
+		strcat(_urlArray[_headURL]._descpriton, "\0");
+
+		
 		_headURL++;
 	}
-}
-
-//write array of URLs and descriptions to file
-void
-WebCrawler::writeURLFile(const char * urlFileName){
-
-}
-
-//write list of words with their urls to file
-void
-WebCrawler::writeWordFile(const char * wordFileName){
-
 }
 
 //override onCoutentFound
@@ -76,6 +72,18 @@ WebCrawler::onContentFound(char c, int status){
 //override onAnchorFound
 void
 WebCrawler::onAnchorFound(char * url){
+
+}
+
+//write array of URLs and descriptions to file
+void
+WebCrawler::writeURLFile(const char * urlFileName){
+
+}
+
+//write list of words with their urls to file
+void
+WebCrawler::writeWordFile(const char * wordFileName){
 
 }
 
