@@ -199,7 +199,7 @@ int main(int argc, char ** argv){
 		
 		if(httpFormat){
 			printf("Initialize web crawler...\n");
-			Webcrawler wc(1000,1,urlRoots);
+			WebCrawler wc(1000,1,urlRoots);
 			printf("Processing...\n");
 			wc.crawl();
 			printf("Making url.txt...\n");
@@ -240,7 +240,7 @@ int main(int argc, char ** argv){
 
 		//Start webcrawling
 		printf("Initialize web crawler...\n");
-		Webcrawler wc(maxUrls,nurlRoots,urlRoots);
+		WebCrawler wc(maxUrls,nurlRoots,urlRoots);
 		printf("Processing...\n");
 		wc.crawl();
 		printf("Making url.txt...\n");
