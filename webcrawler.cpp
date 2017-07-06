@@ -237,6 +237,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 			for(int j = index - 1; j >= 0; j--){
 				fprintf(fp, "%d", recordIndex[j]);
 			}
+			fprintf(fp, "\n");
 			temp = temp->_next;
 		}
 	}
