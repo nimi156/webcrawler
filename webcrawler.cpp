@@ -298,7 +298,7 @@ int main(int argc, char ** argv){
 		strcpy(http, "http://www.");
 		size_t size = 11;
 		
-		for(int i = 0; i < nArgv; i++){
+		for(int i = 0; i < nArgv-3; i++){
 			char * temp = argv[i+3];
 			bool httpFormat = strncasecmp(http, temp, size) == 0;
 
