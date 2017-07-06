@@ -288,11 +288,6 @@ int main(int argc, char ** argv){
 		delete [] urlRoots;
 		delete [] http;
 	} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
-		//invalid option
-		if(!strcmp(argv[1], "-u") == 0){
-			printUsage();
-			return 1;
-		}
 		//get maxUrls
 		int maxUrls = atoi(argv[2]);
 
