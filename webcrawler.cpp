@@ -215,7 +215,7 @@ int main(int argc, char ** argv){
 		delete [] http;
 	} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
 		//invalid option
-		if(strcmp(argv[1], -u) != 0){
+		if(strcmp(argv[1], "-u") != 0){
 			printUsage();
 			return 1;
 		}
