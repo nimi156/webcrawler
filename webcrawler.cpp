@@ -133,7 +133,7 @@ WebCrawler::onContentFound(char c, int status){
 
 			if(!match && validWord){
 				URLRecordList * list = new URLRecordList();
-				list->urlRecordIndex = _headURL;
+				list->_urlRecordIndex = _headURL;
 				list->_next = holder;
 				_wordToURLRecordList->insertItem(wordBuffer, list);
 			}
@@ -223,7 +223,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 		return;
 
 	for(int i = 0; i < 2039; i++){
-		HashTableTemplate<URLRecordList *> * temp = _wordToURLRecordList->_buckets[i];
+		HashTableTemplateEntry<URLRecordList *> * temp = _wordToURLRecordList->_buckets[i];
 		while(temp != NULL){
 			const char * key = temp->_key;
 			fprintf(fp, "%s", key);
