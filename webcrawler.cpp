@@ -258,7 +258,7 @@ int main(int argc, char ** argv){
 		nArgv++;
 	}
 
-	//invalid command lien input
+	//invalid command line input
 	if(nArgv < 2 || nArgv == 3){
 		printUsage();
 		return 1;
@@ -289,7 +289,7 @@ int main(int argc, char ** argv){
 		delete [] http;
 	} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
 		//invalid option
-		if(strcmp(argv[1], "-u") != 0){
+		if(strcmp(argv[2], "-u") != 0){
 			printUsage();
 			return 1;
 		}
