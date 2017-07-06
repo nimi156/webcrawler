@@ -224,7 +224,7 @@ int main(int argc, char ** argv){
 
 		//check format of urlRoots
 		int nurlRoots = 0;
-		const char ** urlRoots = new char * [nArgv - 3];
+		const char ** urlRoots = new const char * [nArgv - 3];
 		char * http = new char [12];
 		strcpy(http, "http://www.");
 		size_t size = 11;
