@@ -227,6 +227,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 		while(temp != NULL){
 			const char * key = temp->_key;
 			fprintf(fp, "%s", key);
+			/*
 			URLRecordList * e = temp->_data;
 			int recordIndex[1000];
 			int index = 0;
@@ -238,6 +239,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 				fprintf(fp, "%d", recordIndex[j]);
 			}
 			fprintf(fp, "\n");
+			*/
 			temp = temp->_next;
 		}
 	}
