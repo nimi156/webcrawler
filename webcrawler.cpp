@@ -11,31 +11,25 @@
 
 // constructor
 WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
-	//initialize URL array
+	//initialize elements
 	_urlArray = new URLRecord[maxUrls]; 
-	//initialize the number of given urls
 	_nInitialURLs = nurlRoots;
-	//initialize maxUrls
 	_maxUrls = maxUrls;
-	//initialize headURL
 	_headURL = 0;
-	//initialize tailURL
 	_tailURL = nurlRoots;
-	//initialize urlToUrlRecord
 	_urlToUrlRecord = new HashTableTemplate<int>();
-	//initailize wordToURLRecordList
 	_wordToURLRecordList = new HashTableTemplate<URLRecordList *>();
 
 	//insert the initial URLs
 	for(int i = 0; i < nurlRoots; i++){
 		int size = strlen(urlRoots[i]) + 1;
-		//initialize its _url
+
 		_urlArray[i]._url = (char *)malloc(size * sizeof(char)); 
 		strcpy(_urlArray[i]._url, urlRoots[i]);
-		//initialize its _description
+
 		_urlArray[i]._description = (char *)malloc(500 * sizeof(char));
 		strcpy(_urlArray[i]._description, "");
-		//insert to the URLArray
+
 		_urlToUrlRecord->insertItem(urlRoots[i], i);
 	}
 }
@@ -66,15 +60,15 @@ WebCrawler::crawl(){
 
 //check if it is a valid word
 bool
-isWord(char * word){
+isWord(char * wordBuffer){
 	char c;
-	int size = strlen(word);
+	int size = strlen(wordBuffer);
 
 	if(size <= 1)
 		return false;
 
 	for(int i = 0; i < size; i++){
-		c = word[i];
+		c = wordBuffer[i];
 
 		if(!isalpha(c))
 			return false;
@@ -82,9 +76,24 @@ isWord(char * word){
 	return true;
 }
 
+
+char * wordBuffer;
 //override onCoutentFound
 void
 WebCrawler::onContentFound(char c, int status){
+	int wordlen = strlen(wordBuffer);
+
+	if(c != ' ' && c != ','){
+	}
+
+	/*
+	if(wordBuffer == '\0' && c != '\0'){
+		free(wordBuffer);
+		wordBuffer = (char *)malloc(2 * sizeof(char));
+		wordBuffer[0] = c;
+		wordBuffer[1] = '\0';
+	}
+	*/
 
 }
 
@@ -170,5 +179,77 @@ printUsage(){
 
 //main
 int main(int argc, char ** argv){
+	int nArgv = 0;
+	while(argv[nArgv] != NULL){
+		nArgv++;
+	}
+
+	//invalid command lien input
+	if(nArgv < 2 || nArgv == 3){
+		printUsage();
+		return 1;
+	} else if (nArgv == 2) { //webcrawl+url
+		const char ** urlRoots = new const char * [1];
+		urlRoots[0] = argv[1];
+
+		char * http = new char[12];
+		strcpy(http, "http://www.");
+		size_t size = 11;
+		bool httpFormat = strncasecmp(http, urlRoots[0], size) == 0;
+		
+		if(httpFormat){
+			printf("Initialize web crawler...\n");
+			Webcrawler wc(1000,1,urlRoots);
+			printf("Processing...\n");
+			wc.crawl();
+			printf("Making url.txt...\n");
+			wc.writeURLFile("url.txt");
+			printf("Making word.txt...\n");
+			wc.writeWordFile("word.txt");
+		} else {
+			printUsage();
+			return 1;
+		}
+		printf("Done...\n");
+		delete [] urlRoots;
+		delete [] http;
+	} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
+		//invalid option
+		if(strcmp(argv[1], -u) != 0){
+			printUsage();
+			return 1;
+		}
+		//get maxUrls
+		int maxUrls = atoi(argv[2]);
+
+		//check format of urlRoots
+		int nurlRoots = 0;
+		const char ** urlRoots = new char * [nArgv - 3];
+		char * http = new char [12];
+		strcpy(http, "http://www.");
+		size_t size = 11;
+		
+		for(int i = 0; i < nArgv; i++){
+			char * temp = argv[i+3];
+			bool httpFormat = strncasecmp(http, temp, size) == 0;
+
+			if(httpFormat){
+				urlRoots[nurlRoots++] = temp;
+			}
+		}
+
+		//Start webcrawling
+		printf("Initialize web crawler...\n");
+		Webcrawler wc(maxUrls,nurlRoots,urlRoots);
+		printf("Processing...\n");
+		wc.crawl();
+		printf("Making url.txt...\n");
+		wc.writeURLFile("url.txt");
+		printf("Making word.txt...\n");
+		wc.writeWordFile("word.txt");
+		printf("Done...\n");
+		delete [] urlRoots;
+		delete [] http;
+	}
 
 }
