@@ -77,23 +77,70 @@ isWord(char * wordBuffer){
 }
 
 
-char * wordBuffer;
+char * wordBuffer = '\0';
+URLRecordList * holder = new URLRecordList();
 //override onCoutentFound
 void
 WebCrawler::onContentFound(char c, int status){
-	int wordlen = strlen(wordBuffer);
-
-	if(c != ' ' && c != ','){
-	}
-
-	/*
 	if(wordBuffer == '\0' && c != '\0'){
 		free(wordBuffer);
 		wordBuffer = (char *)malloc(2 * sizeof(char));
 		wordBuffer[0] = c;
 		wordBuffer[1] = '\0';
+	} else {
+		if(wordBuffer == '\0')
+			return;
 	}
-	*/
+
+	int wordlen = strlen(wordBuffer);
+	if(c != ' ' && c != ','){
+		char * temp = new char [wordlen+2];
+		strcpy(temp, wordBuffer);
+		free(wordBuffer);
+		temp[wordlen] = c;
+		temp[wordlen+1] = '\0';
+		int size = wordlen + 2;
+		wordBuffer = (char *)malloc(size * sizeof(char));
+		strcpy(wordBuffer, temp);
+		delete [] temp;
+	} else {
+		if(wordBuffer == NULL){
+			return;
+		}
+		if(strcmp(wordBuffer, " ") == 0){
+			free(wordBuffer);
+			wordBuffer = '\0';
+			return;
+		}
+
+		for(int i = 0; i < strlen(wordBuffer); i++){
+			wordBuffer[i] = tolower(wordBuffer[i]);
+		}
+
+		bool validWord = isWord(wordBuffer);
+		bool wordExist = _wordToURLRecordList->find(wordBuffer, &holder);
+
+		if(validWord && !wordExist){
+			URLRecordList * list = new URLRecordList();
+			list->_urlRecordIndex = _headURL;
+			list->_next = NULL;
+			_wordToURLRecordList->insertItem(wordBuffer,list);
+		} else {
+			bool match = true;
+			int prev = holder->_urlRecordIndex;
+			if(prev != _headURL)
+				match = false;
+
+			if(!match && validWord){
+				URLRecordList * list = new URLRecordList();
+				list->urlRecordIndex = _headURL;
+				list->_next = holder;
+				_wordToURLRecordList->insertItem(wordBuffer, list);
+			}
+		}
+		free(wordBuffer);
+		wordBuffer = '\0';
+	}
 
 }
 
@@ -169,7 +216,31 @@ WebCrawler::writeURLFile(const char * urlFileName){
 //write list of words with their urls to file
 void
 WebCrawler::writeWordFile(const char * wordFileName){
+	FILE * fp;
+	fp = fopen(wordFileName, "w");
 
+	if(fp == NULL)
+		return;
+
+	for(int i = 0; i < 2039; i++){
+		HashTableTemplate<URLRecordList *> * temp = _wordToURLRecordList->_buckets[i];
+		while(temp != NULL){
+			const char * key = temp->_key;
+			fprintf(fp, "%s", key);
+			URLRecordList * e = temp->_data;
+			int recordIndex[1000];
+			int index = 0;
+			while(e != NULL){
+				recordIndex[index++] = e->_urlRecordIndex;
+				e = e->_next;
+			}
+			for(int j = index - 1; j >= 0; j--){
+				fprintf(fp, "%d", recordIndex[j]);
+			}
+			temp = temp->_next;
+		}
+	}
+	fclose(fp);
 }
 
 void
