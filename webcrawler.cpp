@@ -94,7 +94,11 @@ WebCrawler::onAnchorFound(char * url){
 	size_t size = 11;
 	bool httpFormat = (strncasecmp(http, url, size) == 0);
 
-	if(httpFormat && _tailURL < _maxUrls){
+	//check if it contains invalid symbols
+	bool goodURL = !strstr(url, "?") && !strstr(url, "#") && !strstr(url, "&")
+				&& !strstr(url, ",");
+
+	if(httpFormat && goodURL && _tailURL < _maxUrls){
 		int n = 0;
 		char * htmlBuffer = fetchHTML(url, &n);
 
