@@ -263,12 +263,14 @@ int main(int argc, char ** argv){
 	} else if (nArgv == 2) { //webcrawl+url
 		const char ** urlRoots = new const char * [1];
 		urlRoots[0] = argv[1];
-
+		
+		//check "http://"
 		char * http = new char[12];
 		strcpy(http, "http://www.");
 		size_t size = 11;
 		bool httpFormat = strncasecmp(http, urlRoots[0], size) == 0;
-		
+
+		//start crawling
 		if(httpFormat){
 			printf("Initialize web crawler...\n");
 			WebCrawler wc(1000,1,urlRoots);
@@ -282,16 +284,19 @@ int main(int argc, char ** argv){
 			printUsage();
 			return 1;
 		}
-		printf("Done...\n");
+		printf("Done!\n");
 		delete [] urlRoots;
 		delete [] http;
+		return 0;
+
 	} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
 		//get maxUrls
 		int maxUrls = atoi(argv[2]);
 
-		//check format of urlRoots
+		//check
 		int nurlRoots = 0;
-		const char ** urlRoots = new const char * [nArgv - 3];
+		const char ** urlRoots = new const char * [nArgv-3];
+
 		char * http = new char [12];
 		strcpy(http, "http://www.");
 		size_t size = 11;
@@ -305,7 +310,7 @@ int main(int argc, char ** argv){
 			}
 		}
 
-		//Start webcrawling
+		//Start crawling
 		printf("Initialize web crawler...\n");
 		WebCrawler wc(maxUrls,nurlRoots,urlRoots);
 		printf("Processing...\n");
@@ -314,9 +319,9 @@ int main(int argc, char ** argv){
 		wc.writeURLFile("url.txt");
 		printf("Making word.txt...\n");
 		wc.writeWordFile("word.txt");
-		printf("Done...\n");
+		printf("Done!\n");
 		delete [] urlRoots;
 		delete [] http;
+		return 0;
 	}
-
 }
