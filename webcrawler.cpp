@@ -74,11 +74,26 @@ isWord(char * wordBuffer){
 	return true;
 }
 
-
+char * word;
+char * description;
 URLRecordList * holder = new URLRecordList();
 //override onCoutentFound
 void
-WebCrawler::onContentFound(char c, int status){
+WebCrawler::onContentFound(char c){
+	//initialize word
+	word = new char[1];
+	word[0] = '\0';
+
+	//initialize description
+	description = new char[1];
+	description[0] = '\0';
+
+	if(('a' <= c <= 'z') || ('A' <= c <= 'Z') || ('0' <= c <= '9')){
+		char * next = new char[2];
+		next[0] = 'c';
+		next[1] = '\0';
+		strcat(word, next);	
+	}
 
 }
 
