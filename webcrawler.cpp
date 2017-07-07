@@ -34,6 +34,7 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 	}
 }
 
+int descriptionSize = 0;
 //implement crawl()
 void
 WebCrawler::crawl(){
@@ -136,6 +137,13 @@ WebCrawler::onContentFound(char c, int status){
 				_wordToURLRecordList->insertItem(wordBuffer, list);
 			}
 		}
+		//add words to url description
+		if(descriptionSize + strlen(wordBuffer) <= 500 && validWord){
+			strcat(_urlArray[_headURL]._description, wordBuffer);
+			strcat(_urlArray[_headURL]._description, " ");
+			descriptionSize += strlen(wordBuffer);
+		}
+
 		free(wordBuffer);
 		wordBuffer = '\0';
 	}
