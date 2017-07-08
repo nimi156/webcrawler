@@ -98,7 +98,7 @@ WebCrawler::wordToHashTable(){
 			char * oneWord;
 
 			URLRecordList * list = NULL;
-			while((oneWord = getWord(oneDescrip)) != NULL){
+			while((oneWord = getWord(&oneDescrip)) != NULL){
 				if(_wordToURLRecordList->find(oneWord, &list) == false){
 					URLRecordList * data = new URLRecordList();
 					data->_urlRecordIndex = i;
