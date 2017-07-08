@@ -58,7 +58,7 @@ WebCrawler::crawl(){
 }
 
 //break into words
-char * word = (char *)malloc(1000 * sizeof(char));
+char * word = (char *)malloc(100 * sizeof(char));
 
 char * getWord(char * &buffer){
 	int i = 0;
@@ -76,10 +76,11 @@ char * getWord(char * &buffer){
 		i++;
 		buffer++;
 	}
-	if(i != 0)
-		return NULL;
+	if(i > 0){
+		word[i] = '\0';
+		return word;
+	}
 
-	word[i] = '\0';
 	return NULL;	
 }
 
