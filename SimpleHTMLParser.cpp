@@ -48,7 +48,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				state = TAG;
 			} 
 			else if (match(&b, "<META CONTENT=")) {
-				state = META
+				state = META;
 			}
 			else if (match(&b, "<TITLE>")){
 				state = title
