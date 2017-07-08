@@ -148,7 +148,7 @@ printf("c1=%c\n", c);
 //		printf("]=%s\n", descrip);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
-	} else if ('"'){
+	} else if (c = '"'){
 		//
 	} else {
 printf("c2=%c\n", c);
