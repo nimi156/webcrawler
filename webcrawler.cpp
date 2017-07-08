@@ -134,6 +134,7 @@ void
 WebCrawler::onContentFound(char c){
 	//start of description
 	if(c == '['){
+		*wordBuff = '\0';
 		wordBuff = descrip; 
 
 		if(_urlArray[_headURL]._description == NULL)
