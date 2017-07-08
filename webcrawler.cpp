@@ -132,7 +132,7 @@ char * wordBuff = descrip;
 void
 WebCrawler::onContentFound(char c){
 	//start of description
-	if(c == '{'){
+	if(c == '['){
 		wordBuff = descrip; 
 printf("descrip=%s", wordBuff);
 
@@ -142,7 +142,7 @@ printf("descrip=%s", wordBuff);
 			_urlArray[_headURL]._description = strdup(" ");
 			_urlArray[_headURL]._description = strdup(wordBuff);
 		}
-	} else if (c == '}'){
+	} else if (c == ']'){
 		printf("%s", descrip);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
