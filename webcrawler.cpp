@@ -38,7 +38,7 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 void
 WebCrawler::crawl(){
 	//loop urlArray
-	while(_headURL <= _tailURL){
+	while(_headURL < _tailURL){
 		//Fetch the next URL in _headURL
 		char * url = _urlArray[_headURL]._url;
 		int n = 0;
@@ -54,10 +54,12 @@ WebCrawler::crawl(){
 		//increment _headURL
 		_headURL++;
 	}
+	wordToHashTable();
 }
 
 //break into words
 char * word = (char *)malloc(1000 * sizeof(char));
+
 char * getWord(char * &buffer){
 	int i = 0;
 	while(*buffer != '\0'){
