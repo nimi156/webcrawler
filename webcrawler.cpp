@@ -46,10 +46,10 @@ WebCrawler::crawl(){
 		//call function parse
 		if(buffer != NULL){
 			parse(buffer, n);
+			free(buffer);
 		}
-		free(buffer);
 
-		strcat(_urlArray[_headURL]._description, "\0");
+		//strcat(_urlArray[_headURL]._description, "\0");
 
 		//increment _headURL
 		_headURL++;
