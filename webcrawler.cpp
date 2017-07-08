@@ -85,17 +85,17 @@ char * getWord(char * &buffer){
 
 void
 WebCrawler::wordToHashTable(){
-	char * oneWord;
 	for(int i = 0; i < _tailURL; i++){
 		if(_urlArray[i]._description != NULL){
 			char * oneDescrip = _urlArray[i]._description;
+			char * oneWord;
 
 			URLRecordList * list = NULL;
 			while((oneWord = getWord(oneDescrip)) != NULL){
 				if(_wordToURLRecordList->find(oneWord, &list) == false){
 					URLRecordList * data = new URLRecordList();
 					data->_urlRecordIndex = i;
-					data->_next = NULL;
+					data->_next = list;
 					_wordToURLRecordList->insertItem(oneWord,data);
 				} else {
 					URLRecordList * temp = list;	
@@ -116,12 +116,6 @@ WebCrawler::wordToHashTable(){
 				}
 			}
 
-		} else {
-			URLRecordList * data = new URLRecordList();
-			data->_urlRecordIndex = i;
-			data->_next = NULL;
-			_wordToURLRecordList->insertItem(oneWord,data);
-			
 		}
 	}
 }
@@ -218,7 +212,7 @@ WebCrawler::writeURLFile(const char * urlFileName){
 		fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
 		//write its description
 		int j = 0;
-printf("description = %s\n", _urlArray[i]._description);
+
 		while(_urlArray[i]._description[j] != '\0'){
 			char c;
 			c = _urlArray[i]._description[j];
