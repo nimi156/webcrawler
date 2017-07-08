@@ -189,14 +189,20 @@ WebCrawler::onAnchorFound(char * url){
 	//check "http://www." format
 	char * http= new char [12];
 	strcpy(http, "http://www.");
-	size_t size = 11;
-	bool httpFormat = (strncasecmp(http, url, size) == 0);
+	size_t size11 = 11;
+	bool httpFormat = (strncasecmp(http, url, size11) == 0);
+
+	//check "https://www." format
+	char * https = new char [13];
+	strcpy(https, "https://www.");
+	size_t size12 = 12;
+	bool httpsFormat = (strncasecmp(https, url, size12) == 0);
 
 	//check if it contains invalid symbols
 	bool goodURL = !strstr(url, "?") && !strstr(url, "#") && !strstr(url, "&")
 				&& !strstr(url, ",");
 
-	if(httpFormat && goodURL && _tailURL < _maxUrls){
+	if((httpFormat || httpsFormat)&& goodURL && _tailURL < _maxUrls){
 		int n = 0;
 		char * htmlBuffer = fetchHTML(url, &n);
 
@@ -227,6 +233,7 @@ WebCrawler::onAnchorFound(char * url){
 		}
 	}
 	delete [] http;
+	delete [] https;
 }
 
 //write array of URLs and descriptions to file
