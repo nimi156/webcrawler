@@ -223,8 +223,10 @@ printf("description = %s\n", _urlArray[i]._description);
 			char c;
 			c = _urlArray[i]._description[j];
 			//allow only char,number,space in description
-			if((int)c == 32 || (int)c >=45 && (int) c<= 122)
+			if((int)c == 32 || (int)c >=44 && (int) c<= 122)
 				fprintf(fp, "%c", _urlArray[i]._description[j++]);
+			else
+				j++;
 		}
 		fprintf(fp,"\n\n");
 	}
