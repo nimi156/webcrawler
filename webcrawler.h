@@ -46,6 +46,7 @@ class WebCrawler : public SimpleHTMLParser{
   // Override onContentFound and onAnchorFound
   void onContentFound(char c);
   void onAnchorFound(char * url);
+  void wordToHashTable();
 };
 
 
