@@ -196,7 +196,9 @@ WebCrawler::onAnchorFound(char * url){
 		//check if the url already exist in the urlArray
 		bool exist = false;
 		for(int i = 0; i < _tailURL; i++){
-			if(strcmp(url, _urlArray[i]._url) == 0)
+			if(_urlArray[i]._url == NULL)
+				i++;
+			else if(strcmp(url, _urlArray[i]._url) == 0)
 				exist = true;
 		}
 		
