@@ -22,6 +22,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 {
 	enum { START, TAG, SCRIPT, ANCHOR, HREF,
 	       COMMENT, FRAME, SRC, TITLE, METACF, METANF} state;
+	//added TITLE, METACF, METANF states
 
 	state = START;
 	
@@ -173,9 +174,11 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		case METACF: {
 			//if (match(&b, "/>")){
 			if (match(&b, "NAME=\"DESCRIPTION\"/>")){
+				//use (char)16 as a sign of start of description
 				onContentFound((char)16);
 				state = START;
 			} else if (match(&b, "/>")) {
+				//use (char)18 as a sign of end of description
 				onContentFound((char)18);
 				state = START;
 			} else {

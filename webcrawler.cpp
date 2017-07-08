@@ -34,7 +34,6 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 	}
 }
 
-//implement crawl()
 void
 WebCrawler::crawl(){
 	//loop urlArray
@@ -49,7 +48,8 @@ WebCrawler::crawl(){
 			parse(buffer, n);
 			free(buffer);
 		}
-
+		
+		//finish description
 		strcat(_urlArray[_headURL]._description, "\0");
 
 		//increment _headURL
@@ -66,7 +66,6 @@ char * getWord(char * &buffer){
 printf("buffer=%s\n", buffer);
 	int i = 0;
 	while(*buffer != '\0'){
-		//if(*buffer == ' ' || *buffer == '.' || *buffer == ',' || *buffer == '-'){
 		if((int)(*buffer) < 97 || (int)(*buffer) > 122){
 			if(i == 0){
 				buffer++;
@@ -88,6 +87,7 @@ printf("buffer=%s\n", buffer);
 	return NULL;	
 }
 
+//add words to hashtable
 void
 WebCrawler::wordToHashTable(){
 	for(int i = 0; i < _tailURL; i++){
@@ -131,7 +131,6 @@ char * wordBuff = descrip;
 //override onCoutentFound
 void
 WebCrawler::onContentFound(char c){
-	//start of description
 	if(c == (char)16){
 		*wordBuff = '\0';
 		wordBuff = descrip; 
