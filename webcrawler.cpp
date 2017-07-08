@@ -92,13 +92,13 @@ void
 WebCrawler::wordToHashTable(){
 	for(int i = 0; i < _tailURL; i++){
 		if(_urlArray[i]._description != NULL){
-			char oneDescrip [500];
+			const char oneDescrip [500];
 			strncpy(oneDescrip, _urlArray[i]._description, 499);
 			oneDescrip[499] = '\0';
 			char * oneWord;
 
 			URLRecordList * list = NULL;
-			while((oneWord = getWord((char *)oneDescrip)) != NULL){
+			while((oneWord = getWord((const char *)oneDescrip)) != NULL){
 				if(_wordToURLRecordList->find(oneWord, &list) == false){
 					URLRecordList * data = new URLRecordList();
 					data->_urlRecordIndex = i;
