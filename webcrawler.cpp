@@ -325,11 +325,17 @@ int main(int argc, char ** argv){
 		//check "http://"
 		char * http = new char[12];
 		strcpy(http, "http://www.");
-		size_t size = 11;
-		bool httpFormat = strncasecmp(http, urlRoots[0], size) == 0;
+		size_t size11 = 11;
+		bool httpFormat = strncasecmp(http, urlRoots[0], size11) == 0;
+
+		//check "https://"
+		char * https = new char[13];
+		strcpy(https, "https://www.");
+		size_t size12 = 12;
+		bool httpsFormat = strncasecmp(https, urlRoots[0], size12) == 0;
 
 		//start crawling
-		if(httpFormat){
+		if(httpFormat || httpsFormat){
 			printf("Initialize web crawler...\n");
 			WebCrawler wc(1000,1,urlRoots);
 			printf("Processing...\n");
