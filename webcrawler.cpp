@@ -64,7 +64,8 @@ char * word = (char *)malloc(100 * sizeof(char));
 char * getWord(char * &buffer){
 	int i = 0;
 	while(*buffer != '\0'){
-		if(*buffer == ' ' || *buffer == '.' || *buffer == ',' || *buffer == '-'){
+		//if(*buffer == ' ' || *buffer == '.' || *buffer == ',' || *buffer == '-'){
+		if((int)(*buffer) < 97 || (int)(*buffer) > 122){
 			if(i == 0){
 				buffer++;
 				continue;
@@ -145,7 +146,7 @@ WebCrawler::onContentFound(char c){
 	} else if (c == '"'){
 		//
 	} else {
-		*wordBuff = c;
+		*wordBuff = tolower(c);
 		wordBuff++;
 	}
 }
