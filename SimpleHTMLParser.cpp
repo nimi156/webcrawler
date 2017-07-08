@@ -46,7 +46,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if	(match(&b,"<")) {
 				state = TAG;
 			} 
-			else if (match(&b, "<META CONTENT=")) {
+			else if (match(&b, "<META CONTENT=\"")) {
 		printf("<%c,%d,%d>\n", *b, *b,state);
 				state = META;
 			}
