@@ -170,8 +170,8 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		}
 		case META: {
 			//if (match(&b, "/>")){
+	printf("META\n");
 			if (match(&b, "NAME=\"DESCRIPTION\"/>")){
-			printf("{{{{\n");
 				onContentFound('{');
 				state = START;
 			} else if (match(&b, "/>")) {
