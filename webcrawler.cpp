@@ -66,19 +66,22 @@ char * getWord(char * &buffer){
 printf("buffer=%s\n", buffer);
 	int i = 0;
 	while(*buffer != '\0'){
+		//invalid char
 		if((int)(*buffer) < 97 || (int)(*buffer) > 122){
 			if(i == 0){
 				buffer++;
 				continue;
-			} else{
+			} else{ //end of the word
 				word[i] = '\0';
 				return word;
 			}
 		}
+		//add char to word[]
 		word[i] = *buffer;
 		i++;
 		buffer++;
 	}
+	//handle the very last word in buffer
 	if(i > 0){
 		word[i] = '\0';
 		return word;
@@ -91,18 +94,22 @@ printf("buffer=%s\n", buffer);
 void
 WebCrawler::wordToHashTable(){
 	for(int i = 0; i < _tailURL; i++){
+		//first check
 		if(_urlArray[i]._description != NULL){
+			//get the description of urlarray[i]
 			char * oneDescrip = _urlArray[i]._description;
 			char * oneWord;
 
 			URLRecordList * list = NULL;
+			//break the description down to words
 			while((oneWord = getWord(oneDescrip)) != NULL){
+				//use word as key to find in hashtable, if not, add it in front of the llist
 				if(_wordToURLRecordList->find(oneWord, &list) == false){
 					URLRecordList * data = new URLRecordList();
 					data->_urlRecordIndex = i;
 					data->_next = list;
 					_wordToURLRecordList->insertItem(oneWord,data);
-				} else {
+				} else { //loop the llist and check if word duplicate 
 					URLRecordList * temp = list;	
 					int found = 0;
 					while(temp != NULL){
@@ -112,6 +119,7 @@ WebCrawler::wordToHashTable(){
 						}
 						temp = temp->_next;
 					}
+					//add
 					if(found == 0){
 						URLRecordList * data = new URLRecordList();
 						data->_urlRecordIndex = i;
@@ -131,28 +139,35 @@ char * wordBuff = descrip;
 //override onCoutentFound
 void
 WebCrawler::onContentFound(char c){
+	//found start of description
 	if(c == (char)16){
+		//prepare
 		*wordBuff = '\0';
 		wordBuff = descrip; 
 
+		//description empty ready to add
 		if(_urlArray[_headURL]._description == NULL)
+			//check if description len below 499 then add 
 			if(strlen(wordBuff) <= 499){
 				strcpy(_urlArray[_headURL]._description, wordBuff);
 			} else {
+				//only copy first 499 to description
 				strncpy(_urlArray[_headURL]._description, wordBuff, 499);
 			}
-		else {
+		else { //add after the original description
+			//check size
 			if((strlen(_urlArray[_headURL]._description) + strlen(wordBuff)+1) <= 499){
 				strcat(_urlArray[_headURL]._description, " ");
 				strcat(_urlArray[_headURL]._description, wordBuff);
 			} else {
+				//add only up to 500
 				char b[500];
 				sprintf(b, "%s%s", " ", wordBuff);
 				int size = strlen(_urlArray[_headURL]._description) + 1;
 				strncpy(_urlArray[_headURL]._description, b, 499-size);
 			}
 		}
-	} else if (c == (char)18){
+	} else if (c == (char)18){ //sign of description end
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if (c == '"'){
@@ -253,18 +268,26 @@ WebCrawler::writeWordFile(const char * wordFileName){
 	if(fp == NULL)
 		return;
 
+	//create iterator
 	HashTableTemplateIterator<URLRecordList *> iterator(_wordToURLRecordList);
 	int index = -1;
+
 	const char * key;
 	URLRecordList * data;
+
+	//loop the hashtable
 	while(iterator.next(key,data)){
+		//add word
 		fprintf(fp, "%s ", key);
 		URLRecordList * curr = data;
 
 		while(curr != NULL){
-			if(curr->_urlRecordIndex != index)
+			//no duplicate index
+			if(curr->_urlRecordIndex != index){
+				//add index of that word
 				fprintf(fp, "%d ", curr->_urlRecordIndex);
-			index = curr->_urlRecordIndex;
+			}
+			index = curr->_urlRecordIndex; //update index
 			curr = curr->_next;
 		}
 		fprintf(fp, "\n");
