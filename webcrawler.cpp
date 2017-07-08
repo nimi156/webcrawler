@@ -132,11 +132,10 @@ char * wordBuff = descrip;
 //override onCoutentFound
 void
 WebCrawler::onContentFound(char c){
-printf("c1=%c\n", c);
 	//start of description
 	if(c == '['){
 		wordBuff = descrip; 
-//printf("[=%s\n", wordBuff);
+printf("[=%s\n", wordBuff);
 
 		if(_urlArray[_headURL]._description == NULL)
 			_urlArray[_headURL]._description = strdup(wordBuff);
@@ -145,13 +144,12 @@ printf("c1=%c\n", c);
 			_urlArray[_headURL]._description = strdup(wordBuff);
 		}
 	} else if (c == ']'){
-//		printf("]=%s\n", descrip);
+		printf("]=%s\n", descrip);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if (c == '"'){
 		//
 	} else {
-printf("c2=%c\n", c);
 		*wordBuff = c;
 		wordBuff++;
 	}
