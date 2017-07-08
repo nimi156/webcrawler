@@ -128,13 +128,15 @@ WebCrawler::wordToHashTable(){
 
 char * descrip = (char *)malloc(1000*sizeof(char));
 char * wordBuff = descrip;
+
 //override onCoutentFound
 void
 WebCrawler::onContentFound(char c){
+printf("c1=%c\n", c);
 	//start of description
 	if(c == '['){
 		wordBuff = descrip; 
-printf("[=%s\n", wordBuff);
+//printf("[=%s\n", wordBuff);
 
 		if(_urlArray[_headURL]._description == NULL)
 			_urlArray[_headURL]._description = strdup(wordBuff);
@@ -143,13 +145,13 @@ printf("[=%s\n", wordBuff);
 			_urlArray[_headURL]._description = strdup(wordBuff);
 		}
 	} else if (c == ']'){
-		printf("]=%s\n", descrip);
+//		printf("]=%s\n", descrip);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if ('"'){
 		//
 	} else {
-printf("c=%c\n", c);
+printf("c2=%c\n", c);
 		*wordBuff = c;
 		wordBuff++;
 	}
