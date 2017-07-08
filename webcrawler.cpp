@@ -143,12 +143,13 @@ printf("[=%s\n", wordBuff);
 			_urlArray[_headURL]._description = strdup(wordBuff);
 		}
 	} else if (c == ']'){
-		printf("]=%s", descrip);
+		printf("]=%s\n", descrip);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if ('"'){
 		//
 	} else {
+printf("c=%c\n", c);
 		*wordBuff = c;
 		wordBuff++;
 	}
