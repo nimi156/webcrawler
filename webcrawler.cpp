@@ -56,46 +56,100 @@ WebCrawler::crawl(){
 	}
 }
 
-//check if it is a valid word
-bool
-isWord(char * wordBuffer){
-	char c;
-	int size = strlen(wordBuffer);
-
-	if(size <= 1)
-		return false;
-
-	for(int i = 0; i < size; i++){
-		c = wordBuffer[i];
-		
-		if(isalpha(c) == 0)
-			return false;
+//break into words
+char * word = (char *)malloc(1000 * sizeof(char));
+char * getWord(char * &buffer){
+	int i = 0;
+	while(*buffer != '\0'){
+		if(*buffer == ' ' || *buffer == '.' || *buffer == ',' || *buffer == '-'){
+			if(i == 0){
+				buffer++;
+				continue;
+			} else{
+				word[i] = '\0';
+				return word;
+			}
+		}
+		word[i] = *buffer;
+		i++;
+		buffer++;
 	}
-	return true;
+	if(i != 0)
+		return NULL;
+
+	word[i] = '\0';
+	return;	
 }
 
-char * word;
-char * description;
-URLRecordList * holder = new URLRecordList();
+void
+wordToHashTable(){
+	for(int i = 0; i < _tailURL; i++){
+		if(_urlArray[i]._description != NULL){
+			char * oneWord;
+			char * oneDescrip = _urlArray[i]._description;
+
+			URLRecordList * list = NULL;
+			while((oneWord = getWord(oneDescrip)) != NULL){
+				if(_wordToURLRecordList->find(oneWord, &list) == false){
+					URLRecordList * data = new URLRecordList();
+					data->_urlRecordIndex = i;
+					data->_next = NULL;
+					_wordToURLRecordList->insertItem(oneWord,data);
+				} else {
+					URLRecordList * temp = list;	
+					int found = 0;
+					while(temp != NULL){
+						if(temp->_urlRecordindex == i){
+							found = 1;
+							break;
+						}
+						temp = temp->_next;
+					}
+					if(found == 0){
+						URLRecordList * data = new URLRecordList();
+						data->_urlRecordIndex = i;
+						data->_next = temp;
+						_wordToURLRecordList->insertItem(oneWord,data);
+					}
+				}
+			}
+
+		} else {
+			URLRecordList * data = new URLRecordList();
+			data->_urlRecordIndex = i;
+			data->_next = NULL;
+			_wordToURLRecordList->insertItem(oneWord,data);
+			
+		}
+	}
+}
+
+char * descrip = (char *)malloc(1000*sizeof(char));
+char * wordBuff = descrip;
 //override onCoutentFound
 void
 WebCrawler::onContentFound(char c){
-	//initialize word
-	word = new char[1];
-	word[0] = '\0';
-
-	//initialize description
-	description = new char[1];
-	description[0] = '\0';
-
-	if(('a' <= c <= 'z') || ('A' <= c <= 'Z') || ('0' <= c <= '9')){
-		char * next = new char[2];
-		next[0] = 'c';
-		next[1] = '\0';
-		strcat(word, next);	
+	//start of description
+	if(c == '{'){
+		descrip = wordBuff; 
+		if(_urlArray[_headURL]._description == NULL)
+			_urlArray[_headURL]._description = strdup(descrip);
+		else {
+			_urlArray[_headURL]._description = strdup("");
+			_urlArray[_headURL]._description = strdup(descrip);
+		}
+	} else if (c == '}'){
+		memset(descrip, 0, sizeof(char)*strlen(descrip));
+		wordBuff = descrip;
+	} else if ('"'){
+		//
+	} else {
+		*wordBuff = c;
+		wordBuff++;
 	}
-
 }
+
+
 
 //override onAnchorFound
 void
@@ -173,12 +227,34 @@ WebCrawler::writeURLFile(const char * urlFileName){
 //write list of words with their urls to file
 void
 WebCrawler::writeWordFile(const char * wordFileName){
+	FILE * fp;	
+	fp = fopen(wordFileName, "w");
 
+	if(fp == NULL)
+		return;
+
+	HashTableTemplateIterator<URLRecordList *> iterator(_wordToURLRecordList);
+	int index = -1;
+	const char * key;
+	URLRecordList * data;
+	while(iterator.next(key,data)){
+		fprintf(fp, "%s ", key);
+		URLRecordList * curr = data;
+
+		while(curr != NULL){
+			if(curr->_urlRecordIndex != index)
+				fprintf(fp, "%d ", curr->_urlRecordIndex);
+			index = curr->_urlRecordIndex;
+			curr = curr->_next;
+		}
+		fprintf(fp, "\n");
+	}
+	fclose(fp);
 }
 
 void
 printUsage(){
-	fprintf(stderr, "Usage: webcrawl [-u <maxurls>] url-list\n");
+	fprintf(stderr, "iUsage: webcrawl [-u <maxurls>] url-list\n");
 }
 
 //main

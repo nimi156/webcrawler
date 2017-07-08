@@ -21,7 +21,7 @@ bool
 SimpleHTMLParser::parse(char * buffer, int n)
 {
 	enum { START, TAG, SCRIPT, ANCHOR, HREF,
-	       COMMENT, FRAME, SRC } state;
+	       COMMENT, FRAME, SRC, META, TITLE} state;
 
 	state = START;
 	
@@ -46,6 +46,12 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			}
 			else if	(match(&b,"<")) {
 				state = TAG;
+			} 
+			else if (match(&b, "<META CONTENT=")) {
+				state = META
+			}
+			else if (match(&b, "<TITLE>")){
+				state = title
 			}
 			else {
 				char c = *b;
@@ -162,6 +168,28 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			}
 			break;
 		}
+		case META: {
+			if (match(&b, "/>")){
+				onContentFound('{');
+				onContentFound('}');
+				state = START;
+			} else {
+				onContentFound(*b);
+				b++;
+			}
+			break;
+		}
+		case TITLE: {
+			if (match(&b, "</TITLE>")){
+				onContentFound('{');
+				onContentFound('}');
+				state = START;
+			} else {
+				onContentFound(*b);
+				b++;
+			}
+		}
+
 		default:;
 		}
 		
