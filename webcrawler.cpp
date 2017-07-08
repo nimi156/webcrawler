@@ -134,7 +134,7 @@ WebCrawler::onContentFound(char c){
 	//start of description
 	if(c == '['){
 		wordBuff = descrip; 
-printf("descrip=%s", wordBuff);
+printf("[=%s\n", wordBuff);
 
 		if(_urlArray[_headURL]._description == NULL)
 			_urlArray[_headURL]._description = strdup(wordBuff);
@@ -143,7 +143,7 @@ printf("descrip=%s", wordBuff);
 			_urlArray[_headURL]._description = strdup(wordBuff);
 		}
 	} else if (c == ']'){
-		printf("%s", descrip);
+		printf("]=%s", descrip);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if ('"'){
