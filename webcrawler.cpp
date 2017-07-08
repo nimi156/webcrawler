@@ -372,17 +372,16 @@ int main(int argc, char ** argv){
 		char * https = new char [13];
 		strcpy(https, "https://www.");
 		size_t size12 = 12;
-
-		bool goodFormat = false;
-		if(strncasecmp(http,temp,size11) == 0){
-			goodFormat = true;
-		} else if (strncasecmp(https,temp,size12) == 0){
-			goodFormat = true;
-		}
 		
 		for(int i = 0; i < nArgv-3; i++){
 			char * temp = argv[i+3];
 			//bool httpFormat = strncasecmp(http, temp, size) == 0;
+			bool goodFormat = false;
+			if(strncasecmp(http,temp,size11) == 0){
+				goodFormat = true;
+			} else if (strncasecmp(https,temp,size12) == 0){
+				goodFormat = true;
+			}
 
 			if(goodFormat){
 				urlRoots[nurlRoots++] = temp;
