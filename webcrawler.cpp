@@ -50,11 +50,12 @@ WebCrawler::crawl(){
 			free(buffer);
 		}
 
-		//strcat(_urlArray[_headURL]._description, "\0");
+		strcat(_urlArray[_headURL]._description, "\0");
 
 		//increment _headURL
 		_headURL++;
 	}
+
 	wordToHashTable();
 }
 
