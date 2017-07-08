@@ -186,17 +186,26 @@ WebCrawler::onAnchorFound(char * url){
 	if(url == NULL)
 		return;
 
-	//check "http://www." format
-	char * http= new char [12];
+	//check "http(s)://www." format
+	char * http = new char [12];
 	strcpy(http, "http://www.");
-	size_t size = 11;
-	bool httpFormat = (strncasecmp(http, url, size) == 0);
+	char * https = new char [13];
+	strcpy(https, "https://www.")
+	size_t size11 = 11;
+	size_t size12 = 12;
+	//bool httpFormat = (strncasecmp(http, url, size) == 0);
+	bool goodFormat = false;
+	if(strncasecmp(http,url,size11) == 0){
+		goodFormat = true;
+	} else if (strncasecmp(https,url,size12) == 0){
+		goodFormat = true;
+	}
 
 	//check if it contains invalid symbols
 	bool goodURL = !strstr(url, "?") && !strstr(url, "#") && !strstr(url, "&")
 				&& !strstr(url, ",");
 
-	if(httpFormat && goodURL && _tailURL < _maxUrls){
+	if(goodFormat && goodURL && _tailURL < _maxUrls){
 		int n = 0;
 		char * htmlBuffer = fetchHTML(url, &n);
 
@@ -315,14 +324,23 @@ int main(int argc, char ** argv){
 		const char ** urlRoots = new const char * [1];
 		urlRoots[0] = argv[1];
 		
-		//check "http://"
+		//check "http(s)://"
 		char * http = new char[12];
+		char * https = new char[13];
 		strcpy(http, "http://www.");
-		size_t size = 11;
-		bool httpFormat = strncasecmp(http, urlRoots[0], size) == 0;
+		strcpy(https,"https://www.");
+		size_t size11 = 11;
+		size_t size12 = 12;
+		//bool httpFormat = strncasecmp(http, urlRoots[0], size) == 0;
+		bool goodFormat = false;
+		if(strncasecmp(http,urlRoots[0],size11) == 0){
+			goodFormat = true;
+		} else if (strncasecmp(https,urlRoots[0],size12) == 0){
+			goodFormat = true;
+		}
 
 		//start crawling
-		if(httpFormat){
+		if(goodFormat){
 			printf("Initialize web crawler...\n");
 			WebCrawler wc(1000,1,urlRoots);
 			printf("Processing...\n");
@@ -350,13 +368,23 @@ int main(int argc, char ** argv){
 
 		char * http = new char [12];
 		strcpy(http, "http://www.");
-		size_t size = 11;
+		size_t size11 = 11;
+		char * https = new char [13];
+		strcpy(https, "https://www.");
+		size_t size12 = 12;
+
+		bool goodFormat = false;
+		if(strncasecmp(http,temp,size11) == 0){
+			goodFormat = true;
+		} else if (strncasecmp(https,temp,size12) == 0){
+			goodFormat = true;
+		}
 		
 		for(int i = 0; i < nArgv-3; i++){
 			char * temp = argv[i+3];
-			bool httpFormat = strncasecmp(http, temp, size) == 0;
+			//bool httpFormat = strncasecmp(http, temp, size) == 0;
 
-			if(httpFormat){
+			if(goodFormat){
 				urlRoots[nurlRoots++] = temp;
 			}
 		}
