@@ -148,7 +148,7 @@ WebCrawler::onContentFound(char c){
 				strcat(_urlArray[_headURL]._description, wordBuff);
 			} else {
 				char b[500];
-				sprintf(b, "%c%s", " ", wordBuff);
+				sprintf(b, "%s%s", " ", wordBuff);
 				int size = strlen(_urlArray[_headURL]._description) + 1;
 				strncpy(_urlArray[_headURL]._description, b, 499-size);
 			}
