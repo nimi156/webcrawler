@@ -172,12 +172,11 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		}
 		case METACF: {
 			//if (match(&b, "/>")){
-	printf("META\n");
 			if (match(&b, "NAME=\"DESCRIPTION\"/>")){
-				onContentFound('{');
+				onContentFound('[');
 				state = START;
 			} else if (match(&b, "/>")) {
-				onContentFound('}');
+				onContentFound(']');
 				state = START;
 			} else {
 				onContentFound(*b);
@@ -187,23 +186,24 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		}
 		case METANF: {
 			if (match(&b, "/>")) {
-				onContentFound('{');
-				onContentFound('}');
+				onContentFound('[');
+				onContentFound(']');
 				state = START;
 			} else {
 				onContentFound(*b);
 				b++;
 			}
-				break;
+			break;
 		}
 		case TITLE: {
 			if (match(&b, "</TITLE>")){
-				onContentFound('{');
+				onContentFound('[');
 				state = START;
 			} else {
 				onContentFound(*b);
 				b++;
 			}
+			break;
 		}
 
 		default:;
