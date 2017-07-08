@@ -51,7 +51,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				state = META;
 			}
 			else if (match(&b, "<TITLE>")){
-				state = title
+				state = TITLE;
 			}
 			else {
 				char c = *b;
