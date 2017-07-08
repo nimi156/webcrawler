@@ -47,7 +47,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
                 state = TITLE;
             }
 			else if (match(&b, "<META CONTENT=\"")) {
-		printf("<%c,%d,%d>\n", *b, *b,state);
 				state = METACF;
 			}
 			else if (match(&b, "<META NAME=\"DESCRIPTION\" CONTENT=\"")) {
