@@ -78,11 +78,11 @@ char * getWord(char * &buffer){
 		return NULL;
 
 	word[i] = '\0';
-	return;	
+	return NULL;	
 }
 
 void
-wordToHashTable(){
+WebCrawl::wordToHashTable(){
 	for(int i = 0; i < _tailURL; i++){
 		if(_urlArray[i]._description != NULL){
 			char * oneWord;
