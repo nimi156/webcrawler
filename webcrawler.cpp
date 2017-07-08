@@ -83,9 +83,9 @@ char * getWord(char * &buffer){
 
 void
 WebCrawler::wordToHashTable(){
+	char * oneWord;
 	for(int i = 0; i < _tailURL; i++){
 		if(_urlArray[i]._description != NULL){
-			char * oneWord;
 			char * oneDescrip = _urlArray[i]._description;
 
 			URLRecordList * list = NULL;
@@ -99,7 +99,7 @@ WebCrawler::wordToHashTable(){
 					URLRecordList * temp = list;	
 					int found = 0;
 					while(temp != NULL){
-						if(temp->_urlRecordindex == i){
+						if(temp->_urlRecordIndex == i){
 							found = 1;
 							break;
 						}
