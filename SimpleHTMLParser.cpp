@@ -21,7 +21,7 @@ bool
 SimpleHTMLParser::parse(char * buffer, int n)
 {
 	enum { START, TAG, SCRIPT, ANCHOR, HREF,
-	       COMMENT, FRAME, SRC, META, TITLE} state;
+	       COMMENT, FRAME, SRC, TITLE, METACF, METANF} state;
 
 	state = START;
 	
@@ -43,15 +43,18 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
-			else if	(match(&b,"<")) {
-				state = TAG;
-			} 
+			else if (match(&b, "<TITLE>")) {
+                state = TITLE;
+            }
 			else if (match(&b, "<META CONTENT=\"")) {
 		printf("<%c,%d,%d>\n", *b, *b,state);
-				state = META;
+				state = METACF;
 			}
-			else if (match(&b, "<TITLE>")){
-				state = TITLE;
+			else if (match(&b, "<META NAME=\"DESCRIPTION\" CONTENT=\"")) {
+		        state = METANF;
+		    }
+			else if (match(&b, "<")){
+				state = TAG;
 			}
 			else {
 				char c = *b;
@@ -168,7 +171,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			}
 			break;
 		}
-		case META: {
+		case METACF: {
 			//if (match(&b, "/>")){
 	printf("META\n");
 			if (match(&b, "NAME=\"DESCRIPTION\"/>")){
@@ -182,6 +185,17 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				b++;
 			}
 			break;
+		}
+		case METANF: {
+			if (match(&b, "/>")) {
+				onContentFound('{');
+				onContentFound('}');
+				state = START;
+			} else {
+				onContentFound(*b);
+				b++;
+			}
+				break;
 		}
 		case TITLE: {
 			if (match(&b, "</TITLE>")){
