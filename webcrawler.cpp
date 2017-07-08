@@ -190,7 +190,7 @@ WebCrawler::onAnchorFound(char * url){
 	char * http = new char [12];
 	strcpy(http, "http://www.");
 	char * https = new char [13];
-	strcpy(https, "https://www.")
+	strcpy(https, "https://www.");
 	size_t size11 = 11;
 	size_t size12 = 12;
 	//bool httpFormat = (strncasecmp(http, url, size) == 0);
