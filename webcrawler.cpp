@@ -43,6 +43,7 @@ WebCrawler::crawl(){
 		char * url = _urlArray[_headURL]._url;
 		int n = 0;
 		char * buffer = fetchHTML(url, &n);
+
 		//call function parse
 		if(buffer != NULL){
 			parse(buffer, n);
