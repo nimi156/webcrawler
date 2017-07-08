@@ -227,7 +227,6 @@ WebCrawler::onAnchorFound(char * url){
 		}
 	}
 	delete [] http;
-	delete [] https;
 }
 
 //write array of URLs and descriptions to file
