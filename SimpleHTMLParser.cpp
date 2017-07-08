@@ -47,7 +47,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if	(match(&b,"<")) {
 				state = TAG;
 			} 
-			else if (match(&b, "<META CONTENT=")) {
+			else if (match(&b, "<META CONTENT=\"")) {
 				state = META;
 			}
 			else if (match(&b, "<TITLE>")){
@@ -58,12 +58,12 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
 					if (!lastCharSpace) {
-						onContentFound(' ');
+					//	onContentFound(' ');
 					}
 					lastCharSpace = true;
 				}
 				else {
-					onContentFound(c);
+					//onContentFound(c);
 					lastCharSpace = false;
 				}
 				
@@ -169,8 +169,11 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			break;
 		}
 		case META: {
-			if (match(&b, "/>")){
+			//if (match(&b, "/>")){
+			if (match(&b, "NAME=\"DESCRIPTION\"/>")){
 				onContentFound('{');
+				state = START;
+			} else if (match(&b, "/>")) {
 				onContentFound('}');
 				state = START;
 			} else {
@@ -182,7 +185,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		case TITLE: {
 			if (match(&b, "</TITLE>")){
 				onContentFound('{');
-				onContentFound('}');
 				state = START;
 			} else {
 				onContentFound(*b);
