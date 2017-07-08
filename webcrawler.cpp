@@ -139,6 +139,7 @@ WebCrawler::onContentFound(char c){
 			_urlArray[_headURL]._description = strdup(descrip);
 		}
 	} else if (c == '}'){
+		printf("%s", descrip);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if ('"'){
