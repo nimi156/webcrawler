@@ -140,8 +140,8 @@ WebCrawler::onContentFound(char c){
 		if(_urlArray[_headURL]._description == NULL)
 			_urlArray[_headURL]._description = strdup(wordBuff);
 		else {
-			_urlArray[_headURL]._description = strdup(" ");
-			_urlArray[_headURL]._description = strdup(wordBuff);
+			strcat(_urlArray[_headURL]._description, " ");
+			strcat(_urlArray[_headURL]._description, wordBuff);
 		}
 	} else if (c == ']'){
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
