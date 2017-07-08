@@ -82,7 +82,7 @@ char * getWord(char * &buffer){
 }
 
 void
-WebCrawl::wordToHashTable(){
+WebCrawler::wordToHashTable(){
 	for(int i = 0; i < _tailURL; i++){
 		if(_urlArray[i]._description != NULL){
 			char * oneWord;
