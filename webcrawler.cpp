@@ -137,10 +137,21 @@ WebCrawler::onContentFound(char c){
 		wordBuff = descrip; 
 
 		if(_urlArray[_headURL]._description == NULL)
-			strcpy(_urlArray[_headURL]._description, wordBuff);
+			if(strlen(wordBuff) <= 499){
+				strcpy(_urlArray[_headURL]._description, wordBuff);
+			} else {
+				strncpy(_urlArray[_headURL]._description, wordBuff, 499);
+			}
 		else {
-			strcat(_urlArray[_headURL]._description, " ");
-			strcat(_urlArray[_headURL]._description, wordBuff);
+			if((strlen(_urlArray[_headURL]._description) + strlen(wordBuff)+1) <= 499){
+				strcat(_urlArray[_headURL]._description, " ");
+				strcat(_urlArray[_headURL]._description, wordBuff);
+			} else {
+				char b[500];
+				sprintf(b, "%c%s", " ", wordBuff);
+				int size = strlen(_urlArray[_headURL]._description) + 1;
+				strncpy(_urlArray[_headURL]._description, b, 499-size);
+			}
 		}
 	} else if (c == (char)18){
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
