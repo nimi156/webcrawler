@@ -130,7 +130,7 @@ char * wordBuff = descrip;
 void
 WebCrawler::onContentFound(char c){
 	//start of description
-	if(c == '['){
+	if(c == (char)16){
 		*wordBuff = '\0';
 		wordBuff = descrip; 
 
@@ -140,7 +140,7 @@ WebCrawler::onContentFound(char c){
 			strcat(_urlArray[_headURL]._description, " ");
 			strcat(_urlArray[_headURL]._description, wordBuff);
 		}
-	} else if (c == ']'){
+	} else if (c == (char)18){
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if (c == '"'){
