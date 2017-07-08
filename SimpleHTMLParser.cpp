@@ -38,6 +38,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				state = COMMENT;
 			}
 			else if (match(&b,"<A ")) {
+		printf("<%c,%d,%d>\n", *b, *b,state);
 				state = ANCHOR;
 			}
 			else if (match(&b,"<FRAME ")) {
@@ -48,7 +49,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			} 
 			else if (match(&b, "<META CONTENT=\"")) {
 				state = META;
-		printf("<%c,%d,%d>\n", *b, *b,state);
 			}
 			else if (match(&b, "<TITLE>")){
 				state = TITLE;
