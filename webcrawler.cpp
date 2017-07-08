@@ -138,7 +138,7 @@ WebCrawler::onContentFound(char c){
 		wordBuff = descrip; 
 
 		if(_urlArray[_headURL]._description == NULL)
-			_urlArray[_headURL]._description = strdup(wordBuff);
+			strcpy(_urlArray[_headURL]._description, wordBuff);
 		else {
 			strcat(_urlArray[_headURL]._description, " ");
 			strcat(_urlArray[_headURL]._description, wordBuff);
