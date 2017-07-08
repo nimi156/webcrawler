@@ -29,7 +29,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
 	char * b = buffer;
 	bool lastCharSpace = false;
 	while (b < bufferEnd) {
-		printf("<%c,%d,%d>\n", *b, *b,state);
 		switch (state) {
 		case START: {
 			if (match(&b,"<SCRIPT")) {
@@ -49,6 +48,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			} 
 			else if (match(&b, "<META CONTENT=\"")) {
 				state = META;
+		printf("<%c,%d,%d>\n", *b, *b,state);
 			}
 			else if (match(&b, "<TITLE>")){
 				state = TITLE;
