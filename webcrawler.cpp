@@ -133,12 +133,13 @@ void
 WebCrawler::onContentFound(char c){
 	//start of description
 	if(c == '{'){
-		descrip = wordBuff; 
+		wordBuff = descrip; 
+
 		if(_urlArray[_headURL]._description == NULL)
-			_urlArray[_headURL]._description = strdup(descrip);
+			_urlArray[_headURL]._description = strdup(wordBuff);
 		else {
-			_urlArray[_headURL]._description = strdup("");
-			_urlArray[_headURL]._description = strdup(descrip);
+			_urlArray[_headURL]._description = strdup(" ");
+			_urlArray[_headURL]._description = strdup(wordBuff);
 		}
 	} else if (c == '}'){
 		printf("%s", descrip);
