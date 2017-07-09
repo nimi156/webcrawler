@@ -100,6 +100,7 @@ WebCrawler::wordToHashTable(){
 			char * oneDescrip = _urlArray[i]._description;
 			char * oneWord;
 
+printf("description = %s \n", oneDescrip);
 			URLRecordList * list = NULL;
 			//break the description down to words
 			while((oneWord = getWord(oneDescrip)) != NULL){
@@ -133,7 +134,7 @@ WebCrawler::wordToHashTable(){
 	}
 }
 
-char * descrip = (char *)malloc(500*sizeof(char));
+char * descrip = (char *)malloc(1000*sizeof(char));
 char * wordBuff = descrip;
 
 //override onCoutentFound
