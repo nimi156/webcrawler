@@ -100,7 +100,7 @@ WebCrawler::wordToHashTable(){
 			char * oneDescrip = _urlArray[i]._description;
 			char * oneWord;
 
-printf("description = %s \n", oneDescrip);
+//printf("description = %s \n", oneDescrip);
 			URLRecordList * list = NULL;
 			//break the description down to words
 			while((oneWord = getWord(oneDescrip)) != NULL){
