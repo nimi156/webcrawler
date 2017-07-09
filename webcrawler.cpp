@@ -236,6 +236,7 @@ WebCrawler::onAnchorFound(char * url){
 		}
 	}
 	delete [] http;
+	delete [] https;
 }
 
 //write array of URLs and descriptions to file
@@ -356,6 +357,7 @@ int main(int argc, char ** argv){
 		printf("Done!\n");
 		delete [] urlRoots;
 		delete [] http;
+		delete [] https;
 		return 0;
 
 	} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
@@ -400,6 +402,7 @@ int main(int argc, char ** argv){
 		printf("Done!\n");
 		delete [] urlRoots;
 		delete [] http;
+		delete [] https;
 		return 0;
 	}
 }
