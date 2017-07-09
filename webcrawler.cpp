@@ -63,7 +63,7 @@ WebCrawler::crawl(){
 char * word = (char *)malloc(100 * sizeof(char));
 
 char * getWord(char * &buffer){
-printf("buffer=%s\n", buffer);
+//printf("buffer=%s\n", buffer);
 	int i = 0;
 	while(*buffer != '\0'){
 		//invalid char
