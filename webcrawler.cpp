@@ -63,11 +63,10 @@ WebCrawler::crawl(){
 char * word = (char *)malloc(100 * sizeof(char));
 
 char * getWord(char * &buffer){
-//printf("buffer=%s\n", buffer);
 	int i = 0;
 	while(*buffer != '\0'){
 		//invalid char
-		if((int)(*buffer) < 97 || (int)(*buffer) > 122){
+		if(((int)(*buffer) < 97 || (int)(*buffer) > 122) && (*buffer != '\'')){
 			if(i == 0){
 				buffer++;
 				continue;
@@ -90,6 +89,7 @@ char * getWord(char * &buffer){
 	return NULL;	
 }
 
+URLRecordList * list = new URLRecordList();
 //add words to hashtable
 void
 WebCrawler::wordToHashTable(){
@@ -99,16 +99,13 @@ WebCrawler::wordToHashTable(){
 			//get the description of urlarray[i]
 			char * oneDescrip = _urlArray[i]._description;
 			char * oneWord;
-
-//printf("description = %s \n", oneDescrip);
-			URLRecordList * list = NULL;
 			//break the description down to words
 			while((oneWord = getWord(oneDescrip)) != NULL){
-				//use word as key to find in hashtable, if not, add it in front of the llist
+			//use word as key to find in hashtable, if not, add it in front of the llist
 				if(_wordToURLRecordList->find(oneWord, &list) == false){
 					URLRecordList * data = new URLRecordList();
 					data->_urlRecordIndex = i;
-					data->_next = list;
+					data->_next = NULL;
 					_wordToURLRecordList->insertItem(oneWord,data);
 				} else { //loop the llist and check if word duplicate 
 					URLRecordList * temp = list;	
@@ -124,7 +121,7 @@ WebCrawler::wordToHashTable(){
 					if(found == 0){
 						URLRecordList * data = new URLRecordList();
 						data->_urlRecordIndex = i;
-						data->_next = temp;
+						data->_next = list;
 						_wordToURLRecordList->insertItem(oneWord,data);
 					}
 				}
@@ -134,7 +131,7 @@ WebCrawler::wordToHashTable(){
 	}
 }
 
-char * descrip = (char *)malloc(1000*sizeof(char));
+char * descrip = (char *)malloc(500*sizeof(char));
 char * wordBuff = descrip;
 
 //override onCoutentFound
@@ -190,22 +187,23 @@ WebCrawler::onAnchorFound(char * url){
 	//check "http(s)://www." format
 	char * http = new char [12];
 	strcpy(http, "http://www.");
-	size_t size = 11;
-	bool httpFormat = (strncasecmp(http, url, size) == 0);
-	/*
+	char * https = new char [13];
+	strcpy(https, "https://www.");
+	size_t size11 = 11;
+	size_t size12 = 12;
+	//bool httpFormat = (strncasecmp(http, url, size) == 0);
 	bool goodFormat = false;
 	if(strncasecmp(http,url,size11) == 0){
 		goodFormat = true;
 	} else if (strncasecmp(https,url,size12) == 0){
 		goodFormat = true;
 	}
-	*/
 
 	//check if it contains invalid symbols
 	bool goodURL = !strstr(url, "?") && !strstr(url, "#") && !strstr(url, "&")
 				&& !strstr(url, ",");
 
-	if(httpFormat && goodURL && _tailURL < _maxUrls){
+	if(goodFormat && goodURL && _tailURL < _maxUrls){
 		int n = 0;
 		char * htmlBuffer = fetchHTML(url, &n);
 
@@ -271,6 +269,7 @@ WebCrawler::writeURLFile(const char * urlFileName){
 //write list of words with their urls to file
 void
 WebCrawler::writeWordFile(const char * wordFileName){
+/*
 	FILE * fp;	
 	fp = fopen(wordFileName, "w");
 
@@ -302,6 +301,31 @@ WebCrawler::writeWordFile(const char * wordFileName){
 		fprintf(fp, "\n");
 	}
 	fclose(fp);
+*/
+	FILE * fp;
+	fp = fopen(wordFileName,"w");
+	
+	for(int i = 0; i < 2039; i++){ 
+		HashTableTemplateEntry<URLRecordList*>* temp = _wordToURLRecordList->_buckets[i];
+		while(temp != NULL){
+			const char * key = temp->_key; 
+			fprintf(fp,"%s",key);
+			URLRecordList * data =  temp->_data;
+			int recordIndex[1000];
+			int index = 0;
+			while(data != NULL){
+				recordIndex[index++] =  data->_urlRecordIndex;
+				data = data->_next;
+			}
+			for(int j = index - 1; j >= 0;j--){
+				fprintf(fp," %d", recordIndex[j]);
+			}
+
+			fprintf(fp,"\n");
+			temp = temp -> _next;
+		}
+	}
+	fclose(fp);
 }
 
 void
@@ -326,12 +350,21 @@ int main(int argc, char ** argv){
 		
 		//check "http(s)://"
 		char * http = new char[12];
+		char * https = new char[13];
 		strcpy(http, "http://www.");
-		size_t size = 11;
-		bool httpFormat = strncasecmp(http, urlRoots[0], size) == 0;
+		strcpy(https,"https://www.");
+		size_t size11 = 11;
+		size_t size12 = 12;
+		//bool httpFormat = strncasecmp(http, urlRoots[0], size) == 0;
+		bool goodFormat = false;
+		if(strncasecmp(http,urlRoots[0],size11) == 0){
+			goodFormat = true;
+		} else if (strncasecmp(https,urlRoots[0],size12) == 0){
+			goodFormat = true;
+		}
 
 		//start crawling
-		if(httpFormat){
+		if(goodFormat){
 			printf("Initialize web crawler...\n");
 			WebCrawler wc(1000,1,urlRoots);
 			printf("Processing...\n");
@@ -347,6 +380,7 @@ int main(int argc, char ** argv){
 		printf("Done!\n");
 		delete [] urlRoots;
 		delete [] http;
+		delete [] https;
 		return 0;
 
 	} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
@@ -359,13 +393,22 @@ int main(int argc, char ** argv){
 
 		char * http = new char [12];
 		strcpy(http, "http://www.");
-		size_t size = 11;
+		size_t size11 = 11;
+		char * https = new char [13];
+		strcpy(https, "https://www.");
+		size_t size12 = 12;
 		
 		for(int i = 0; i < nArgv-3; i++){
 			char * temp = argv[i+3];
-			bool httpFormat = strncasecmp(http, temp, size) == 0;
+			//bool httpFormat = strncasecmp(http, temp, size) == 0;
+			bool goodFormat = false;
+			if(strncasecmp(http,temp,size11) == 0){
+				goodFormat = true;
+			} else if (strncasecmp(https,temp,size12) == 0){
+				goodFormat = true;
+			}
 
-			if(httpFormat){
+			if(goodFormat){
 				urlRoots[nurlRoots++] = temp;
 			}
 		}
@@ -380,8 +423,11 @@ int main(int argc, char ** argv){
 		printf("Making word.txt...\n");
 		wc.writeWordFile("word.txt");
 		printf("Done!\n");
+
 		delete [] urlRoots;
 		delete [] http;
+		delete [] https;
 		return 0;
 	}
+
 }
