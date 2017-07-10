@@ -1,4 +1,3 @@
-
 #include "SimpleHTMLParser.h"
 #include "openhttp.h"
 #include <string.h>
