@@ -269,39 +269,6 @@ WebCrawler::writeURLFile(const char * urlFileName){
 //write list of words with their urls to file
 void
 WebCrawler::writeWordFile(const char * wordFileName){
-/*
-	FILE * fp;	
-	fp = fopen(wordFileName, "w");
-
-	if(fp == NULL)
-		return;
-
-	//create iterator
-	HashTableTemplateIterator<URLRecordList *> iterator(_wordToURLRecordList);
-	int index = -1;
-
-	const char * key;
-	URLRecordList * data;
-
-	//loop the hashtable
-	while(iterator.next(key,data)){
-		//add word
-		fprintf(fp, "%s ", key);
-		URLRecordList * curr = data;
-
-		while(curr != NULL){
-			//no duplicate index
-			if(curr->_urlRecordIndex != index){
-				//add index of that word
-				fprintf(fp, "%d ", curr->_urlRecordIndex);
-			}
-			index = curr->_urlRecordIndex; //update index
-			curr = curr->_next;
-		}
-		fprintf(fp, "\n");
-	}
-	fclose(fp);
-*/
 	FILE * fp;
 	fp = fopen(wordFileName,"w");
 	
