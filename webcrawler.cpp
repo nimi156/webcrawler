@@ -131,7 +131,7 @@ WebCrawler::wordToHashTable(){
 	}
 }
 
-char * descrip = (char *)malloc(500*sizeof(char));
+char * descrip = (char *)malloc(1000*sizeof(char));
 char * wordBuff = descrip;
 
 //override onCoutentFound
