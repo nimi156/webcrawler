@@ -50,7 +50,8 @@ char * fetchHTML( const char * url, int * n) {
 
     struct pstring s;
     init_pstring(&s);
-
+	
+	printf("%s\n", url);
     curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
