@@ -27,7 +27,7 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 		_urlArray[i]._url = (char *)malloc(size * sizeof(char)); 
 		strcpy(_urlArray[i]._url, urlRoots[i]);
 
-		_urlArray[i]._description = (char *)malloc(500 * sizeof(char));
+		_urlArray[i]._description = (char *)malloc(505 * sizeof(char));
 		strcpy(_urlArray[i]._description, "");
 		//add to urlToUrlRecord
 		_urlToUrlRecord->insertItem(urlRoots[i], i);
