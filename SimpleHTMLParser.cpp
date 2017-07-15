@@ -188,7 +188,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		}
 		case METANF: {
 			if (match(&b, "/>") || match(&b, ">")) {
-				onContentFound((char)16);
+				//onContentFound((char)16);
 				onContentFound((char)18);
 				state = START;
 			} else {
