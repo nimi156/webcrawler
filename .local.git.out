@@ -2724,3 +2724,18 @@ After doing this, you may fix the identity used for this commit with:
 
  3 files changed, 52 insertions(+), 16 deletions(-)
  mode change 100644 => 100755 webcrawler.cpp
+[master cf9883e] Commit web-crawler
+ Committer: Haoran Wang <wang2226@cuda.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 17 insertions(+), 1 deletion(-)
