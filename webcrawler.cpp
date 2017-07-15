@@ -28,6 +28,8 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 		strcpy(_urlArray[i]._url, urlRoots[i]);
 
 		_urlArray[i]._description = (char *)malloc(500 * sizeof(char));
+if(_urlArray[i]._description == NULL)
+	printf("description malloc error\n");
 		strcpy(_urlArray[i]._description, "");
 		//add to urlToUrlRecord
 		_urlToUrlRecord->insertItem(urlRoots[i], i);
@@ -240,6 +242,8 @@ WebCrawler::onAnchorFound(char * url){
 		if(goodHTML && !exist){
 			_urlArray[_tailURL]._url = strdup(url);
 			_urlArray[_tailURL]._description = (char *)malloc(500 * sizeof(char));
+			if(_urlArray[_tailURL]._description == NULL)
+				printf("description malloc error\n");
 			strcpy(_urlArray[_tailURL]._description, "");
 		
 			_urlArray[_tailURL].html = (char *)malloc((strlen(htmlBuffer)+1) * sizeof(char));
