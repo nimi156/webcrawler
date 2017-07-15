@@ -7,6 +7,8 @@
 struct URLRecord {
   char * _url;          // URL of the document.
   char * _description;  // First 100 words of the document without tags
+  char * html;
+  int  size;
 };
 
 // Used to implement a list of URL indexes of the url array.
