@@ -181,6 +181,8 @@ WebCrawler::onContentFound(char c){
 			}
 		}
 	} else if (c == (char)18){ //sign of description end
+printf("i=%d, url=%s, desc=%s\n",_headURL, _urlArray[_headURL]._url, _urlArray[_headURL]._description);
+fflush(stdout);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if (c == '"'){
@@ -275,8 +277,6 @@ WebCrawler::writeURLFile(const char * urlFileName){
 		fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
 		//write its description
 		int j = 0;
-printf("i=%d, url=%s, desc=%s\n",i, _urlArray[i]._url, _urlArray[i]._description);
-fflush(stdout);
 		while(_urlArray[i]._description[j] != '\0'){
 			char c;
 			c = _urlArray[i]._description[j];
