@@ -180,7 +180,7 @@ WebCrawler::onContentFound(char c){
 			}
 		}
 	} else if (c == (char)18){ //sign of description end
-printf("i=%d, url=%s, desc=%s\n",_headURL, _urlArray[_headURL]._url, _urlArray[_headURL]._description);
+printf("desc=%s\n",_urlArray[_headURL]._description);
 fflush(stdout);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
