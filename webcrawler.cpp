@@ -277,6 +277,7 @@ WebCrawler::writeURLFile(const char * urlFileName){
 		fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
 		//write its description
 		int j = 0;
+
 		while(_urlArray[i]._description[j] != '\0'){
 			char c;
 			c = _urlArray[i]._description[j];
