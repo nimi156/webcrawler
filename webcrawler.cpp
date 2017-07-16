@@ -157,7 +157,6 @@ WebCrawler::onContentFound(char c){
 		//prepare
 		*wordBuff = '\0';
 		wordBuff = descrip; 
-
 		//description empty ready to add
 		if(_urlArray[_headURL]._description == NULL)
 			//check if description len below 499 then add 
@@ -181,8 +180,8 @@ WebCrawler::onContentFound(char c){
 			}
 		}
 	} else if (c == (char)18){ //sign of description end
-//printf("i=%d, size=%d, url=%s, desc=%s\n",_headURL, (int)strlen(_urlArray[_headURL]._description), _urlArray[_headURL]._url, _urlArray[_headURL]._description);
-//fflush(stdout);
+printf("i=%d, size=%d, url=%s, desc=%s\n",_headURL, (int)strlen(_urlArray[_headURL]._description), _urlArray[_headURL]._url, _urlArray[_headURL]._description);
+fflush(stdout);
 		memset(descrip, 0, sizeof(char)*strlen(descrip));
 		wordBuff = descrip;
 	} else if (c == '"'){
