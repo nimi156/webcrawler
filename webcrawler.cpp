@@ -28,21 +28,9 @@ WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
 		strcpy(_urlArray[i]._url, urlRoots[i]);
 
 		_urlArray[i]._description = (char *)malloc(500 * sizeof(char));
-if(_urlArray[i]._description == NULL)
-	printf("description malloc error\n");
 		strcpy(_urlArray[i]._description, "");
 		//add to urlToUrlRecord
 		_urlToUrlRecord->insertItem(urlRoots[i], i);
-
-		int n = 0;
-		char * buffer = fetchHTML(_urlArray[i]._url, &n);
-		if(buffer != NULL && n != 0){
-			_urlArray[i].html = (char *)malloc((strlen(buffer)+1) * sizeof(char));
-			strcpy(_urlArray[i].html, buffer);
-			_urlArray[i].size = n;
-
-			free(buffer);
-		}
 	}
 }
 
@@ -53,19 +41,17 @@ WebCrawler::crawl(){
 		//Fetch the next URL in _headURL
 		char * url = _urlArray[_headURL]._url;
 		int n = 0;
-		//char * buffer = fetchHTML(url, &n);
-		char * buffer = _urlArray[_headURL].html;
-		n = _urlArray[_headURL].size;
-printf("head=%d, tail=%d, url=%s, n=%d\n", _headURL, _tailURL, url, n);
-fflush(stdout);
+		char * buffer = fetchHTML(url, &n);
+
 		//call function parse
 		if(buffer != NULL){
 			parse(buffer, n);
 			free(buffer);
+			buffer = NULL;
 		}
 		
 		//finish description
-		//strcat(_urlArray[_headURL]._description, "\0");
+		strcat(_urlArray[_headURL]._description, "\0");
 
 		//increment _headURL
 		_headURL++;
@@ -146,7 +132,7 @@ WebCrawler::wordToHashTable(){
 	}
 }
 
-char * descrip = (char *)malloc(500*sizeof(char));
+char * descrip = (char *)malloc(1000*sizeof(char));
 char * wordBuff = descrip;
 
 //override onCoutentFound
@@ -157,6 +143,7 @@ WebCrawler::onContentFound(char c){
 		//prepare
 		*wordBuff = '\0';
 		wordBuff = descrip; 
+
 		//description empty ready to add
 		if(_urlArray[_headURL]._description == NULL)
 			//check if description len below 499 then add 
@@ -197,6 +184,7 @@ void
 WebCrawler::onAnchorFound(char * url){
 	if(url == NULL)
 		return;
+
 	//check "http(s)://www." format
 	char * http = new char [12];
 	strcpy(http, "http://www.");
@@ -204,29 +192,29 @@ WebCrawler::onAnchorFound(char * url){
 	strcpy(https, "https://www.");
 	size_t size11 = 11;
 	size_t size12 = 12;
-
 	//bool httpFormat = (strncasecmp(http, url, size) == 0);
 	bool goodFormat = false;
-	if(strncasecmp(http,url,size11) == 0) { 
-		goodFormat = true; 
-	} else if (strncasecmp(https,url,size12) == 0){ 
-		goodFormat = true; 
+	if(strncasecmp(http,url,size11) == 0){
+		goodFormat = true;
+	} else if (strncasecmp(https,url,size12) == 0){
+		goodFormat = true;
 	}
 
 	//check if it contains invalid symbols
-	bool goodURL = !strstr(url, "?") && !strstr(url, "#") && !strstr(url, "&") 
-                       && !strstr(url, ",") && !strstr(url, "pdf");
+	bool goodURL = !strstr(url, "?") && !strstr(url, "#") && !strstr(url, "&")
+				&& !strstr(url, ",");
 
-	if(goodFormat && goodURL && (_tailURL < _maxUrls)){
+	if(goodFormat && goodURL && _tailURL < _maxUrls){
 		int n = 0;
 		char * htmlBuffer = fetchHTML(url, &n);
 
 		//check if the HTML fetched is null
 		bool goodHTML = false;
-		if(htmlBuffer != NULL && n !=0){
+		if(htmlBuffer != NULL){
 			goodHTML = true;
-		//	free(htmlBuffer);
 		}
+		free(htmlBuffer);
+		htmlBuffer = NULL;
 
 		//check if the url already exist in the urlArray
 		bool exist = false;
@@ -241,22 +229,13 @@ WebCrawler::onAnchorFound(char * url){
 		if(goodHTML && !exist){
 			_urlArray[_tailURL]._url = strdup(url);
 			_urlArray[_tailURL]._description = (char *)malloc(500 * sizeof(char));
-			if(_urlArray[_tailURL]._description == NULL)
-				printf("description malloc error\n");
 			strcpy(_urlArray[_tailURL]._description, "");
-		
-			_urlArray[_tailURL].html = (char *)malloc((strlen(htmlBuffer)+1) * sizeof(char));
-            strcpy(_urlArray[_tailURL].html, htmlBuffer);
-			_urlArray[_tailURL].size = n;
 			_tailURL++;
-
-			free(htmlBuffer);
-
+		
 			_urlToUrlRecord->insertItem(url, _tailURL-1);
 		}
 	}
 	delete [] http;
-	delete [] https;
 }
 
 //write array of URLs and descriptions to file
@@ -292,7 +271,6 @@ WebCrawler::writeURLFile(const char * urlFileName){
 //write list of words with their urls to file
 void
 WebCrawler::writeWordFile(const char * wordFileName){
-
 	FILE * fp;
 	fp = fopen(wordFileName,"w");
 	
