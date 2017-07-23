@@ -1,6 +1,6 @@
 #Author info
 **Haoran Wang LOGIN: wang2226**
-#Features that work
+##Features that work
 - Will create url.txt and word.txt with correct format
 - Works with *http://* and *https://* format urls
 - Can run up to **407** links for a **single** given initial url input (-u 407 <http://...>)
@@ -25,7 +25,7 @@
 - Links are in right order
 - No duplicate urls in url.txt
 - No duplicate words in word.txt
-#Features that DO NOT work for now
+###Features that DO NOT work for now
 - Can NOT run over 407 links for a single given initail url input
-#Extra Features
+####Extra Features
 - None
