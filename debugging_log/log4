@@ -1,0 +1,50 @@
+Thu Jul 6 16:24:43 EDT 2017
++run
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 23428) exited with code 01]
++where
+No stack.
++run webcrawl http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 23433) exited with code 01]
++run
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 23434) exited with code 01]
++list
+238					fprintf(fp, "%d", recordIndex[j]);
+239				}
+240				temp = temp->_next;
+241			}
+242		}
+243		fclose(fp);
+244	}
+245	
+246	void
+247	printUsage(){
++where
+No stack.
++bt
+No stack.
++run
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 23559) exited with code 01]
++list
+248		fprintf(stderr, "Usage: webcrawl [-u <maxurls>] url-list\n");
+249	}
+250	
+251	//main
+252	int main(int argc, char ** argv){
+253		int nArgv = 0;
+254		while(argv[nArgv] != NULL){
+255			nArgv++;
+256		}
+257	
++quit

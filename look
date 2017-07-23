@@ -1,0 +1,253 @@
+ 
+<!DOCTYPE html> 
+<!--[if lt IE 7]>      <html class="no-js oldie lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js oldie ie7 lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js oldie ie8 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"><!--<![endif]-->  
+
+<head>
+    
+<meta charset="utf-8"/><!--    Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+        Remove this if you use the .htaccess -->
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/><!-- Responsive meta tag -->
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<title>University Residences - Housing at Purdue University</title>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+
+<meta content="housing, dining, Purdue, university, housing and food services, residence halls, dorms, campus, on-campus, room, rates, dining court, dining hall, University Residences, Purdue Memorial Union, Black Cultural Center, Union Club Hotel, Purdue, virtual tour, conference, Conference Services, Elliott Hall of Music, Food Stores, Boiler Television, BTV, treat pack, residential life, university resident, student employment, student union, peer mentor, Connections newsletter, Hallways newsletter, lofts, long distance, moving in, contract renewal, housing preferences, housing application, housing choices, housing options," name="keywords"/>
+
+
+<link href="/assets/images/favicon.ico" rel="shortcut icon"/>
+<link href="/assets/images/icon-iphone.png" rel="apple-touch-icon" sizes="76x76"/>
+<link href="/assets/images/icon-ipad.png" rel="apple-touch-icon" sizes="76x76"/>
+<link href="/assets/images/icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="/assets/images/icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152"/>
+
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+
+
+
+<link href="assets/css/uitheme.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="assets/css/style.css" media="all" rel="stylesheet" type="text/css"/>
+
+<script src="///use.edgefonts.net/source-code-pro.js"></script>
+<script src="assets/js/libs.min.js" type="text/javascript"></script>
+<script src="assets/js/plugins/jquery.mSimpleSlidebox.js" type="text/javascript"></script>
+
+
+</head>
+<body>
+
+<nav class="global parentNavigation"><a class="parentNavigation__link" href="https://www.purdue.edu/vpsl/">
+        &lt; VPSL
+    </a><ul><li><a href="http://www.purdue.edu/campus_map/">Campus Map</a></li><li><a class="push_right" href="Housing/FAQ.html">FAQ</a></li></ul></nav><header><div><a class="navSkip" href="#content">Skip to main content</a><nav class="global"><ul><li><form action="searchResults.html" id="cse-search-box"><input name="cx" type="hidden" value="000544337135276999794:xy4ixf_8qnk"/><input name="cof" type="hidden" value="FORID:10"/><input name="i.e." type="hidden" value="UTF-8"/><input name="site url" type="hidden" value="www.housing.purdue.edu/"/><label for="q">search</label><input aria-label="Search" class="search" id="q" name="q" size="35" type="text" value="search"/><button aria-label="Search the Housing Website" name="sa" title="Search the Housing website" type="submit">Search</button></form></li></ul></nav><a aria-label="Purdue University" class="purdueMark" href="http://www.purdue.edu/" title="Purdue University">Purdue University</a><a class="urMark" href="index.html" title="University Residences Home">University Residences</a><nav class="primary"><ul><li><a href="Housing/index.html">Housing</a><ul><li><a href="Housing/Residences/index.html">Residence Halls</a><ul><li><a href="Housing/Residences/CaryQuad/index.html">Cary Quadrangle</a></li><li><a href="Housing/Residences/Earhart/index.html">Earhart Hall</a></li><li><a href="Housing/Residences/FirstStreetTowers/index.html">First Street Towers</a></li><li><a href="Housing/Residences/Harrison/index.html">Harrison Hall</a></li><li><a href="Housing/Residences/Hawkins/index.html">Hawkins Hall</a></li><li><a href="Housing/Residences/Hillenbrand/index.html">Hillenbrand Hall</a></li><li><a href="Housing/Residences/Hilltop/index.html">Hilltop Apartments</a></li><li><a href="Housing/Residences/HonorsCollegeandResidences/index.html">Honors College and Residences</a></li><li><a href="Housing/Residences/McCutcheon/index.html">McCutcheon Hall</a></li><li><a href="Housing/Residences/Meredith/index.html">Meredith Hall</a></li><li><a href="Housing/Residences/Owen/index.html">Owen Hall</a></li><li><a href="Housing/Residences/PurdueVillage/index.html">Purdue Village</a></li><li><a href="Housing/Residences/Shreve/index.html">Shreve Hall</a></li><li><a href="Housing/Residences/Tarkington/index.html">Tarkington Hall</a></li><li><a href="Housing/Residences/ThirdStreetSuites/index.html">Third Street Suites</a></li><li><a href="Housing/Residences/Wiley/index.html">Wiley Hall</a></li><li><a href="Housing/Residences/Windsor/index.html">Windsor Halls</a></li><li><a href="Housing/Residences/URBoilerApartments/index.html">UR Boiler Apartments</a></li></ul></li><li><a href="Housing/Contracting/index.html">Contracting for Housing</a></li><li><a href="Housing/ProspectiveStudents/index.html">Prospective Students</a></li><li><a href="Housing/Amenities.html">Amenities</a></li><li><a href="Housing/FAQ.html">Frequently Asked Questions</a></li><li><a href="Housing/Lofts.html">Loft Guidelines &amp; Options</a></li><li><a href="Housing/Map.html">Map</a></li><li><a href="Housing/Rates.html">Rates</a></li><li><a href="Housing/AuxiliaryHousing.html">Auxiliary Housing</a></li><li><a href="Housing/WinterBreak.html">Winter Break Housing</a></li><li><a href="Housing/GenderInclusiveLiving.html">Gender Inclusive Living Community</a></li><li><a href="Housing/SummerInternHousing.html">Summer Intern Housing</a></li><li><a href="Housing/AuxiliaryFAQ.html">Auxiliary Housing Frequently Asked Questions</a></li><li><a href="http://www.housing.purdue.edu/BTV/">Boiler Television (BTV)</a></li><li><a href="https://myhousing.purdue.edu/StarRezPortal">Contract Renewal</a></li><li><a href="http://fixmyhome.physfac.purdue.edu">Fix My Home</a></li><li><a href="http://www.housing.purdue.edu/offcampus">Off-Campus Housing </a></li></ul></li><li><a href="ResidentialLife/index.html">Residential Life</a><ul><li><a href="ResidentialLife/FacultyFellows/index.html">Faculty Fellows</a></li><li><a href="ResidentialLife/URSC/index.html">University Residences Support Center</a></li><li><a href="ResidentialLife/ferpa.html">FERPA</a></li><li><a href="ResidentialLife/importantdates.html">Important Dates</a></li><li><a href="ResidentialLife/movingin.html">Moving In</a></li><li><a href="ResidentialLife/parking.html">Parking</a></li><li><a href="ResidentialLife/residentassistant.html">Resident Assistants</a></li><li><a href="ResidentialLife/URGlobal.html">UR Global</a></li><li><a href="ResidentialLife/urguidelines.html">Guidelines and Policies</a></li><li><a href="ResidentialLife/postalservice.html">U.S. Postal Service &amp; Shipping</a></li><li><a href="ResidentialLife/yourcomputer.html">Your Computer &amp; ResNet</a></li><li><a href="ResidentialLife/PeerMentorProgram.html">Peer Mentor Program</a></li><li><a href="ResidentialLife/REC.html">Residence Education Coordinators</a></li><li><a href="http://www.purdue.edu/learningcommunities">Learning Communities</a></li><li><a href="http://www.hfs.purdue.edu/Employment/Students/index.html">Student Employment</a></li></ul></li><li><a href="http://www.dining.purdue.edu/">Dining</a></li><li><a href="CampusGuests/index.html">Campus Guests</a><ul><li><a href="CampusGuests/ConferenceServices/index.html">Conference Services</a></li><li><a href="CampusGuests/UniversityResidencesAlumni.html">University Residences Alumni and Guest Center</a></li><li><a href="http://www.housing.purdue.edu/BTV/">BTV</a></li><li><a href="http://www.union.purdue.edu/hotel/">Union Club Hotel</a></li><li><a href="http://www.union.purdue.edu/">Purdue Memorial Union</a></li><li><a href="http://www.housing.purdue.edu/HTML/HallOfMusic/">Hall of Music Productions</a></li></ul></li><li><a href="">About Us</a><ul><li><a href="AboutUs/Directory/index.html">Directory</a></li><li><a href="AboutUs/ReConnected/index.html">ReConnected</a><ul><li><a href="AboutUs/ReConnected/Newsletter/index.html">Newsletter Archive</a></li><li><a href="AboutUs/ReConnected/staff.html">Staff</a></li><li><a href="AboutUs/ReConnected/SignUp.html">Get ReConnected Sign Up</a></li></ul></li><li><a href="AboutUs/ABCDAward/index.html">Student Awards</a></li><li><a href="AboutUs/EiR/index.html">Executive in Residence</a></li><li><a href="AboutUs/FiR/index.html">Faculty-in-Residence</a></li></ul></li><li><a href="Giving/index.html">Giving</a><ul><li><a href="Giving/Giving_Residence_Halls/index.html">Giving to University Residences' Halls</a></li><li><a href="Giving/GivingOpportunities.html">Giving Opportunities</a></li><li><a href="https://securelb.imodules.com/s/1461/research/hybrid/index.aspx?sid=1461&amp;gid=1010&amp;pgid=1754&amp;cid=4045&amp;bledit=1&amp;sort=1&amp;dids=1497.1165.1962.1963.1163&amp;appealcode=13200">Give Now</a></li></ul></li></ul></nav></div></header>
+
+<internal>
+
+
+
+
+
+
+
+
+
+
+ </internal>
+<div id="slideshow">
+    <div>
+        <div class="buttons">
+            <a class="next" href="#">
+                <span></span>Next
+            </a>
+            <a class="prev" href="#">
+                <span></span>Previous
+            </a>
+        </div>
+        <ul>
+                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                            <li>
+                                <a href="http://www.statestreetWL.com">
+                                    <img alt="State Street Construction Is Now Underway! For construction and traffic updates, please click the banner for more information." src="data/feeds/2017_04_StateStreetUnderway/banner.png"/>
+                                </a>
+                                <div>
+                                    <span class="title">
+                                        <a href="http://www.statestreetWL.com">State Street Construction Is Now Underway!</a>
+                                    </span>
+                                    <span>
+                                        <a href="http://www.statestreetWL.com">State Street Construction Is Now Underway! For construction and traffic updates, please click the banner for more information.</a>
+                                    </span>
+                                </div>
+                            </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </ul>
+    </div>
+</div>
+    
+ 
+<div class="main" role="main">
+<div class="wrapper">
+
+<div class="sideBar">
+<nav>
+<ul>
+<li id="facebook-fan-button"><a href="http://www.facebook.com/UniversityResidences">Become a fan on Facebook</a></li>
+<li><a href="http://www.housing.purdue.edu/Menus/">Menus Online</a></li>
+<li><a href="http://net.housing.purdue.edu/NetNutrition">NetNutrition</a></li>
+<li><a href="http://www.housing.purdue.edu/BTV/">Boiler Television</a></li>
+<li><a href="http://fixmyhome.physfac.purdue.edu">Fix My Home</a></li>
+</ul>
+</nav>
+<div id="btv"></div>
+<div class="twitterFeed" style="margin-top: 0; border-top: 0;"><header class="twitterFeed__header"><span class="twitter__icon--large"></span> @ResLifeAtPurdue</header>
+<div id="twitterFeed__output"></div>
+<div><a class="floatRight" href="http://twitter.com/ResLifeAtPurdue"> <span class="twitter__icon--small"></span> Follow @ResLifeAtPurdue </a></div>
+</div>
+
+
+
+</div>
+
+<div class="content" id="content">
+
+<internal>
+
+
+
+
+
+
+
+
+
+
+ </internal>
+
+<div id="recentNews">
+    <header>Latest University Residences News</header>
+                                                                                                                                                  
+                                                                                                                                                                                                    <article>
+                            <span class="date">
+                                <span>Thu</span>
+                                <span>13</span>
+                                <span>Jul</span>
+                            </span>
+                            
+                            <header>Assigned to the Cottages? Read what Caleb Waddell, Residence Education Assistant had to say about living in the Cottages last year…</header>
+                            <blockquote>
+<p>&#8220;One of the nicest things for me was having my own private space off to the side where I could go if I had to work, it also had a nice common area with a full-size kitchen I could cook in when I wanted to. We had a laundry room and a pantry. There was plenty of space for storage, quite a large living area and a community center to play games and hang out. So, there were private areas when you needed it and it also had social areas which we looked forward to using.&#160;</p>
+<p>I am excited to go back to the Cottages this year because I didn&#8217;t know everything they had at the time. They have a lot of resources that I was too busy for and didn&#8217;t get to use. They have things like a volleyball pit, swimming pool, hot tub, tanning bed. Things that you don&#8217;t have access to at other places, and I didn&#8217;t fully utilize them last year and am looking forward to doing that this year.&#160;</p>
+<p>For me, as a new incoming student, my biggest concern would be transportation to class, but there is a bus system that runs frequently to and from campus and late at night and the weekends. So, transportation was not that much of an issue for anyone. Residential Life-wise, it almost seemed more &#8220;connected&#8221; to me. Having been an RA in the halls before, it kind of got our residents to bond more easily because they were in this new experience. They sought out my help more because of that, and that helped them to get together and meet people more, and to use their resources better, because they had to ask questions instead of trying to figure it out on their own.&#8221;</p>
+</blockquote>
+                            <footer><a href="http://housing.purdue.edu/Housing/Residences/URBoilerApartments/The_Cottages.html">
+                                                                            Learn More
+                                                                    </a></footer>
+                            </article>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                            <article>
+                            <span class="date">
+                                <span>Mon</span>
+                                <span>03</span>
+                                <span>Apr</span>
+                            </span>
+                            
+                            <header>The State Street Redevelopment Project is Now Underway!</header>
+                            <p>The State Street Redevelopment Project will remake State Street from the Wabash River to U.S. 231 into a place that reflects the vibrant spirit of the community. For more information, project updates, and to sign up for Nixle text and email alerts, visit <a href="http://www.statestreetwl.com">www.statestreetwl.com</a>.</p>
+                            <footer><a href="http://www.statestreetwl.com">
+                                                                            Learn More
+                                                                    </a></footer>
+                            </article>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                    <article>
+                            <span class="date">
+                                <span>Mon</span>
+                                <span>26</span>
+                                <span>Jun</span>
+                            </span>
+                            
+                            <header>View Our July Special Hours of Operation</header>
+                            <p>Residential Dining will have special hours of operation during the month of July. Please click 'Visit Webpage' to view the hours.</p>
+                            <footer><a href="http://dining.purdue.edu/news/JulyDiningCourtHours.html">
+                                                                            Visit Webpage
+                                                                    </a></footer>
+                            </article>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
+    
+
+<div class="sectioned" id="linkMap">
+<ul>
+<li>Current Students</li>
+<li><a href="https://myhousing.purdue.edu/StarRezPortal">Contract Renewal</a></li>
+<li><a href="http://www.housing.purdue.edu/Housing/Contracting/Summer.html">Contract For Summer Housing</a></li>
+<li><a href="http://www.union.purdue.edu/HTML/PSUB/">Purdue Student Union Board</a></li>
+<li><a href="http://hfs.purdue.edu//_archive/LastPublished/Employment/Students/index.html">Student Employment</a></li>
+</ul>
+<ul>
+<li>Prospective Students</li>
+<li><a href="Housing/ProspectiveStudents/index.html">Getting Started</a></li>
+<li><a href="Housing/Residences/index.html">Housing Choices</a></li>
+<li><a href="Housing/Map.html">Map &amp; Virtual Tour</a></li>
+<li><a href="Housing/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<ul>
+<li>Parents</li>
+<li><a href="_archive/Families/URPAC/index.html" style="background-color: transparent;">URPAC</a></li>
+<li><a href="http://www.purdue.edu/purdue/Parents_families/">Purdue Parents</a></li>
+</ul>
+<ul>
+<li>Access Purdue</li>
+<li><a href="https://mypurdue.purdue.edu/">myPurdue</a></li>
+<li><a href="https://erp-portal-prd.itap.purdue.edu/irj/portal">OnePurdue Portal</a></li>
+<li><a href="http://portal.office.com/" title="Office 365">Office 365</a></li>
+<li><a href="https://mycourses.purdue.edu/" title="Blackboard">Blackboard</a></li>
+<li><a href="https://www.purdue.edu/directory/" title="Purdue Directory">Campus Directory</a></li>
+</ul>
+<ul>
+<li>Staff</li>
+<li><a href="ResidentialLife/FacultyFellows/index.html" target="_blank" title="Faculty Fellows">Faculty Fellows<br/></a></li>
+<li><a href="https://sp.hfs.purdue.edu/UR/Marketing/default.aspx" target="_blank" title="Student Life Operations Marketing Sharepoint Request Form">Student Life Marketing Sharepoint Work Order Request</a></li>
+</ul>
+</div></div>
+
+<!-- Close Content -->
+
+</div>
+</div>
+
+<footer><a href="http://www.purdue.edu/" title="Purdue University Home Page">Purdue University</a>
+<p>West Lafayette, IN 47907 USA, (765) 494-4600<br/> &#169; 2017 Purdue University. An equal access/equal opportunity employer<br/> If you are unable to access this page due to a disability, please <a href="mailto:urmktg@purdue.edu">contact us</a></p>
+<div>
+<ul>
+<li><a href="mailto:urmktg@purdue.edu">Contact Us</a></li>
+<li><a href="http://www.adobe.com/products/acrobat/readstep2.html">Get Adobe Reader</a></li>
+</ul>
+<p>Questions about housing? Call (765) 494-1000<br/> Maintained By Student Life Marketing</p>
+</div>
+</footer>
+
+
+
+<!-- Initialize Scripts -->
+
+
+
+<script src="assets/js/compressed.min.js" type="text/javascript"></script>
+<script src="assets/js/plugins/shadowbox3/shadowbox.js" type="text/javascript"></script>
+<script src="/assets/js/home.min.js" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script src="https://www.purdue.edu/purdue/js/pGA.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var mCode = '';
+    var sCodes = [];
+            sCodes.push('UA-688471-1');
+    SetAnalytics(mCode,sCodes);
+</script>
+
+</body>
+</html>

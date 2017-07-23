@@ -1,0 +1,111 @@
+Sun Jul 16 07:21:59 EDT 2017
++r -url 18 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 18 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 26208)]
+[Thread 0x7ffff62c7700 (LWP 26208) exited]
+[New Thread 0x7ffff62c7700 (LWP 26209)]
+[Thread 0x7ffff62c7700 (LWP 26209) exited]
+[New Thread 0x7ffff62c7700 (LWP 26210)]
+[Thread 0x7ffff62c7700 (LWP 26210) exited]
+[New Thread 0x7ffff62c7700 (LWP 26211)]
+[Thread 0x7ffff62c7700 (LWP 26211) exited]
+[New Thread 0x7ffff62c7700 (LWP 26212)]
+[Thread 0x7ffff62c7700 (LWP 26212) exited]
+[New Thread 0x7ffff62c7700 (LWP 26213)]
+[Thread 0x7ffff62c7700 (LWP 26213) exited]
+[New Thread 0x7ffff62c7700 (LWP 26214)]
+[Thread 0x7ffff62c7700 (LWP 26214) exited]
+[New Thread 0x7ffff62c7700 (LWP 26215)]
+[Thread 0x7ffff62c7700 (LWP 26215) exited]
+[New Thread 0x7ffff62c7700 (LWP 26216)]
+[Thread 0x7ffff62c7700 (LWP 26216) exited]
+[New Thread 0x7ffff62c7700 (LWP 26217)]
+[Thread 0x7ffff62c7700 (LWP 26217) exited]
+[New Thread 0x7ffff62c7700 (LWP 26218)]
+[Thread 0x7ffff62c7700 (LWP 26218) exited]
+[New Thread 0x7ffff62c7700 (LWP 26219)]
+[Thread 0x7ffff62c7700 (LWP 26219) exited]
+[New Thread 0x7ffff62c7700 (LWP 26220)]
+[Thread 0x7ffff62c7700 (LWP 26220) exited]
+[New Thread 0x7ffff62c7700 (LWP 26221)]
+[Thread 0x7ffff62c7700 (LWP 26221) exited]
+[New Thread 0x7ffff62c7700 (LWP 26222)]
+[Thread 0x7ffff62c7700 (LWP 26222) exited]
+[New Thread 0x7ffff62c7700 (LWP 26224)]
+[Thread 0x7ffff62c7700 (LWP 26224) exited]
+[New Thread 0x7ffff62c7700 (LWP 26225)]
+[Thread 0x7ffff62c7700 (LWP 26225) exited]
+[New Thread 0x7ffff62c7700 (LWP 26226)]
+[Thread 0x7ffff62c7700 (LWP 26226) exited]
+[New Thread 0x7ffff62c7700 (LWP 26227)]
+[Thread 0x7ffff62c7700 (LWP 26227) exited]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe290, 
+    urlFileName=0x403953 "url.txt") at webcrawler.cpp:280
+280			while(_urlArray[i]._description[j] != '\0'){
++r -url  -url https://www.housing.purdue.edu/
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url  -url https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 26231)]
+[Thread 0x7ffff62c7700 (LWP 26231) exited]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe280, 
+    urlFileName=0x403953 "url.txt") at webcrawler.cpp:280
+280			while(_urlArray[i]._description[j] != '\0'){
++bt
+#0  0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe280, 
+    urlFileName=0x403953 "url.txt") at webcrawler.cpp:280
+#1  0x00000000004029b0 in main (argc=4, argv=0x7fffffffe5a8) at webcrawler.cpp:415
++make clen
++make clean
++make
++b webcrawler.cpp:415
+Breakpoint 1 at 0x40299c: file webcrawler.cpp, line 415.
++r -url 1 https://www.housing.purdue.edu/
+`/u/data/u89/wang2226/cs251/lab2-src/webcrawl' has changed; re-reading symbols.
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 1 https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 26302)]
+[Thread 0x7ffff62c7700 (LWP 26302) exited]
+
+Breakpoint 1, main (argc=4, argv=0x7fffffffe5a8) at webcrawler.cpp:415
+415			printf("Making url.txt...\n");
++n
+416			wc.writeURLFile("url.txt");
++s
+WebCrawler::writeURLFile (this=0x7fffffffe280, urlFileName=0x403953 "url.txt")
+    at webcrawler.cpp:269
+269		fp = fopen(urlFileName, "w");
++p _urlArray[0]
+$1 = {_url = 0x0, _description = 0x0, html = 0x0, size = 0}
++r -url 1 https://www.housing.purdue.edu/
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 1 https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 26513)]
+[Thread 0x7ffff62c7700 (LWP 26513) exited]
+
+Breakpoint 1, main (argc=4, argv=0x7fffffffe5a8) at webcrawler.cpp:415
+415			printf("Making url.txt...\n");
++p _urlArray[0]
+No symbol "_urlArray" in current context.
++n
+416			wc.writeURLFile("url.txt");
++p _urlArray[0]
+No symbol "_urlArray" in current context.
++p wc._urlArray[0]
+$2 = {_url = 0x0, _description = 0x0, html = 0x0, size = 0}
++make 
++info b
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000000000402992 in main(int, char**) at webcrawler.cpp:415
+	breakpoint already hit 1 time
++exit
+Undefined command: "exit".  Try "help".
++q

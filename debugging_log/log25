@@ -1,0 +1,73 @@
+Sat Jul 8 04:04:26 EDT 2017
++r -u 1 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 6989)]
+[Thread 0x7ffff62c7700 (LWP 6989) exited]
+
+Program received signal SIGINT, Interrupt.
+0x0000000000401c96 in WebCrawler::writeURLFile (this=0x7fffffffe290, urlFileName=0x4032bb "url.txt")
+    at webcrawler.cpp:226
+226				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
++list
+221	printf("description = %s\n", _urlArray[i]._description);
+222			while(_urlArray[i]._description[j] != '\0'){
+223				char c;
+224				c = _urlArray[i]._description[j];
+225				//allow only char,number,space in description
+226				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
+227					fprintf(fp, "%c", _urlArray[i]._description[j++]);
+228			}
+229			fprintf(fp,"\n\n");
+230		}
++p i
+$1 = 0
++p j
+$2 = 30
++p _urlArray[0]._description[0]
+$3 = 32 ' '
++p _urlArray[0]._description[26]
+$4 = 115 's'
++p _urlArray[0]._description[27]
+$5 = 105 'i'
++p _urlArray[0]._description[28]
+$6 = 116 't'
++p _urlArray[0]._description[29]
+$7 = 121 'y'
++p _urlArray[0]._description[30]
+$8 = 44 ','
++p _urlArray[0]._description[31]
+$9 = 32 ' '
++p _urlArray[0]._description[32]
+$10 = 97 'a'
++list
+231		fclose(fp);
+232	}
+233	
+234	//write list of words with their urls to file
+235	void
+236	WebCrawler::writeWordFile(const char * wordFileName){
+237		FILE * fp;	
+238		fp = fopen(wordFileName, "w");
+239	
+240		if(fp == NULL)
++n
+222			while(_urlArray[i]._description[j] != '\0'){
++n
+224				c = _urlArray[i]._description[j];
++p i
+$11 = 0
++n
+226				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
++p c
+$12 = 44 ','
++n
+222			while(_urlArray[i]._description[j] != '\0'){
++n
+224				c = _urlArray[i]._description[j];
++n
+226				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
++p c
+$13 = 44 ','
++q

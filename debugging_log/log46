@@ -1,0 +1,130 @@
+Mon Jul 10 12:56:31 EDT 2017
++b webcrawler.cpp:253
+Breakpoint 1 at 0x401ef3: file webcrawler.cpp, line 253.
++r -u 18 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 18 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 20981)]
+[Thread 0x7ffff62c7700 (LWP 20981) exited]
+[New Thread 0x7ffff62c7700 (LWP 20982)]
+[Thread 0x7ffff62c7700 (LWP 20982) exited]
+[New Thread 0x7ffff62c7700 (LWP 20983)]
+[Thread 0x7ffff62c7700 (LWP 20983) exited]
+[New Thread 0x7ffff62c7700 (LWP 20984)]
+[Thread 0x7ffff62c7700 (LWP 20984) exited]
+[New Thread 0x7ffff62c7700 (LWP 20985)]
+[Thread 0x7ffff62c7700 (LWP 20985) exited]
+[New Thread 0x7ffff62c7700 (LWP 20986)]
+[Thread 0x7ffff62c7700 (LWP 20986) exited]
+[New Thread 0x7ffff62c7700 (LWP 20987)]
+[Thread 0x7ffff62c7700 (LWP 20987) exited]
+[New Thread 0x7ffff62c7700 (LWP 20988)]
+[Thread 0x7ffff62c7700 (LWP 20988) exited]
+[New Thread 0x7ffff62c7700 (LWP 20989)]
+[Thread 0x7ffff62c7700 (LWP 20989) exited]
+[New Thread 0x7ffff62c7700 (LWP 20990)]
+[Thread 0x7ffff62c7700 (LWP 20990) exited]
+[New Thread 0x7ffff62c7700 (LWP 20991)]
+[Thread 0x7ffff62c7700 (LWP 20991) exited]
+[New Thread 0x7ffff62c7700 (LWP 20992)]
+[Thread 0x7ffff62c7700 (LWP 20992) exited]
+[New Thread 0x7ffff62c7700 (LWP 20993)]
+[Thread 0x7ffff62c7700 (LWP 20993) exited]
+[New Thread 0x7ffff62c7700 (LWP 20994)]
+[Thread 0x7ffff62c7700 (LWP 20994) exited]
+[New Thread 0x7ffff62c7700 (LWP 20995)]
+[Thread 0x7ffff62c7700 (LWP 20995) exited]
+[New Thread 0x7ffff62c7700 (LWP 20996)]
+[Thread 0x7ffff62c7700 (LWP 20996) exited]
+[New Thread 0x7ffff62c7700 (LWP 20997)]
+[Thread 0x7ffff62c7700 (LWP 20997) exited]
+[New Thread 0x7ffff62c7700 (LWP 20998)]
+[Thread 0x7ffff62c7700 (LWP 20998) exited]
+[New Thread 0x7ffff62c7700 (LWP 20999)]
+[Thread 0x7ffff62c7700 (LWP 20999) exited]
+[New Thread 0x7ffff62c7700 (LWP 21000)]
+[Thread 0x7ffff62c7700 (LWP 21000) exited]
+[New Thread 0x7ffff62c7700 (LWP 21001)]
+[Thread 0x7ffff62c7700 (LWP 21001) exited]
+[New Thread 0x7ffff62c7700 (LWP 21002)]
+[Thread 0x7ffff62c7700 (LWP 21002) exited]
+[New Thread 0x7ffff62c7700 (LWP 21003)]
+[Thread 0x7ffff62c7700 (LWP 21003) exited]
+[New Thread 0x7ffff62c7700 (LWP 21004)]
+[Thread 0x7ffff62c7700 (LWP 21004) exited]
+[New Thread 0x7ffff62c7700 (LWP 21005)]
+[Thread 0x7ffff62c7700 (LWP 21005) exited]
+[New Thread 0x7ffff62c7700 (LWP 21006)]
+[Thread 0x7ffff62c7700 (LWP 21006) exited]
+[New Thread 0x7ffff62c7700 (LWP 21007)]
+[Thread 0x7ffff62c7700 (LWP 21007) exited]
+[New Thread 0x7ffff62c7700 (LWP 21008)]
+[Thread 0x7ffff62c7700 (LWP 21008) exited]
+[New Thread 0x7ffff62c7700 (LWP 21009)]
+[Thread 0x7ffff62c7700 (LWP 21009) exited]
+[New Thread 0x7ffff62c7700 (LWP 21010)]
+[Thread 0x7ffff62c7700 (LWP 21010) exited]
+[New Thread 0x7ffff62c7700 (LWP 21011)]
+[Thread 0x7ffff62c7700 (LWP 21011) exited]
+[New Thread 0x7ffff62c7700 (LWP 21012)]
+[Thread 0x7ffff62c7700 (LWP 21012) exited]
+[New Thread 0x7ffff62c7700 (LWP 21013)]
+[Thread 0x7ffff62c7700 (LWP 21013) exited]
+[New Thread 0x7ffff62c7700 (LWP 21014)]
+[Thread 0x7ffff62c7700 (LWP 21014) exited]
+[New Thread 0x7ffff62c7700 (LWP 21015)]
+[Thread 0x7ffff62c7700 (LWP 21015) exited]
+[New Thread 0x7ffff62c7700 (LWP 21016)]
+[Thread 0x7ffff62c7700 (LWP 21016) exited]
+
+Breakpoint 1, WebCrawler::writeURLFile (this=0x7fffffffe290, urlFileName=0x40360b "url.txt")
+    at webcrawler.cpp:253
+253			int j = 0;
++n
+255			while(_urlArray[i]._description[j] != '\0'){
++p i
+$1 = 0
++p j
+$2 = 0
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000401fa3 in WebCrawler::writeURLFile (this=0x7fffffffe290, 
+    urlFileName=0x40360b "url.txt") at webcrawler.cpp:255
+255			while(_urlArray[i]._description[j] != '\0'){
++list
+250			//write its url
+251			fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
+252			//write its description
+253			int j = 0;
+254	
+255			while(_urlArray[i]._description[j] != '\0'){
+256				char c;
+257				c = _urlArray[i]._description[j];
+258				//allow only char,number,space in description
+259				if((int)c == 32 || (int)c >=44 && (int) c<= 122)
++make
++make clean
++r -u 50 http://www.purdue.edu
+/u/data/u89/wang2226/cs251/lab2-src/webcrawl: No such file or directory.
++make
++r -u 50 http://www.purdue.edu
+`/u/data/u89/wang2226/cs251/lab2-src/webcrawl' has changed; re-reading symbols.
+Error in re-setting breakpoint 1: Cannot access memory at address 0x401e82
+Starting program:  -u 50 http://www.purdue.edu
+No executable file specified.
+Use the "file" or "exec-file" command.
++list b
+Function "b" not defined.
++b list
+Function "list" not defined.
++b list
+Function "list" not defined.
++r -u 50 http://www.purdue.edu
+Starting program:  -u 50 http://www.purdue.edu
+No executable file specified.
+Use the "file" or "exec-file" command.
++exit
+Undefined command: "exit".  Try "help".
++q

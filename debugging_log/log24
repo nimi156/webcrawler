@@ -1,0 +1,108 @@
+Sat Jul 8 03:28:36 EDT 2017
++b webcrawler.cpp:216
+Breakpoint 1 at 0x401b57: file webcrawler.cpp, line 216.
++r -u 10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 6282)]
+[Thread 0x7ffff62c7700 (LWP 6282) exited]
+[New Thread 0x7ffff62c7700 (LWP 6283)]
+[Thread 0x7ffff62c7700 (LWP 6283) exited]
+[New Thread 0x7ffff62c7700 (LWP 6284)]
+[Thread 0x7ffff62c7700 (LWP 6284) exited]
+[New Thread 0x7ffff62c7700 (LWP 6285)]
+[Thread 0x7ffff62c7700 (LWP 6285) exited]
+[New Thread 0x7ffff62c7700 (LWP 6286)]
+[Thread 0x7ffff62c7700 (LWP 6286) exited]
+[New Thread 0x7ffff62c7700 (LWP 6287)]
+[Thread 0x7ffff62c7700 (LWP 6287) exited]
+[New Thread 0x7ffff62c7700 (LWP 6288)]
+[Thread 0x7ffff62c7700 (LWP 6288) exited]
+[New Thread 0x7ffff62c7700 (LWP 6289)]
+[Thread 0x7ffff62c7700 (LWP 6289) exited]
+[New Thread 0x7ffff62c7700 (LWP 6290)]
+[Thread 0x7ffff62c7700 (LWP 6290) exited]
+[New Thread 0x7ffff62c7700 (LWP 6291)]
+[Thread 0x7ffff62c7700 (LWP 6291) exited]
+[New Thread 0x7ffff62c7700 (LWP 6292)]
+[Thread 0x7ffff62c7700 (LWP 6292) exited]
+[New Thread 0x7ffff62c7700 (LWP 6293)]
+[Thread 0x7ffff62c7700 (LWP 6293) exited]
+[New Thread 0x7ffff62c7700 (LWP 6294)]
+[Thread 0x7ffff62c7700 (LWP 6294) exited]
+[New Thread 0x7ffff62c7700 (LWP 6295)]
+[Thread 0x7ffff62c7700 (LWP 6295) exited]
+[New Thread 0x7ffff62c7700 (LWP 6296)]
+[Thread 0x7ffff62c7700 (LWP 6296) exited]
+[New Thread 0x7ffff62c7700 (LWP 6297)]
+[Thread 0x7ffff62c7700 (LWP 6297) exited]
+[New Thread 0x7ffff62c7700 (LWP 6298)]
+[Thread 0x7ffff62c7700 (LWP 6298) exited]
+[New Thread 0x7ffff62c7700 (LWP 6299)]
+[Thread 0x7ffff62c7700 (LWP 6299) exited]
+[New Thread 0x7ffff62c7700 (LWP 6300)]
+[Thread 0x7ffff62c7700 (LWP 6300) exited]
+[New Thread 0x7ffff62c7700 (LWP 6301)]
+[Thread 0x7ffff62c7700 (LWP 6301) exited]
+
+Breakpoint 1, WebCrawler::writeURLFile (this=0x7fffffffe290, urlFileName=0x4031cb "url.txt")
+    at webcrawler.cpp:217
+warning: Source file is more recent than executable.
+217			fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
++list
+212			return;
+213	
+214		//loop urlArray
+215		for(int i = 0; i < _tailURL; i++){
+216			//write its url
+217			fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
+218			//write its description
+219			int j = 0;
+220			while(_urlArray[i]._description[j] != '\0'){
+221				char c;
++p _urlArray[i]._url
+$1 = 0x60d8a0 "http://www.purdue.edu"
++p _urlArray[i]._description
+$2 = 0x635b20 "Purdue University - Indiana's Land Grant University"
++n
+219			int j = 0;
++n
+220			while(_urlArray[i]._description[j] != '\0'){
++n
+222				c = _urlArray[i]._description[j];
++n
+224				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
++p c
+$3 = 80 'P'
++n
+225					fprintf(fp, "%c", _urlArray[i]._description[j++]);
++n
+220			while(_urlArray[i]._description[j] != '\0'){
++n
+222				c = _urlArray[i]._description[j];
++n
+224				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
++p c
+$4 = 117 'u'
++p c
+$5 = 117 'u'
++n
+225					fprintf(fp, "%c", _urlArray[i]._description[j++]);
++n
+220			while(_urlArray[i]._description[j] != '\0'){
++n
+222				c = _urlArray[i]._description[j];
++n
+224				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
++n
+225					fprintf(fp, "%c", _urlArray[i]._description[j++]);
++n
+220			while(_urlArray[i]._description[j] != '\0'){
++n
+222				c = _urlArray[i]._description[j];
++n
+224				if((int)c == 32 || (int)c >=45 && (int) c<= 122)
++n
+225					fprintf(fp, "%c", _urlArray[i]._description[j++]);
++q

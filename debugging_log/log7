@@ -1,0 +1,20 @@
+Thu Jul 6 16:42:05 EDT 2017
++run webcrawl -u 1 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 26470) exited with code 01]
++list
+239				}
+240				fprintf(fp, "\n");
+241				temp = temp->_next;
+242			}
+243		}
+244		fclose(fp);
+245	}
+246	
+247	void
+248	printUsage(){
++where
+No stack.
++quit

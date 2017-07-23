@@ -1,0 +1,2139 @@
+Thu Jul 6 20:09:03 EDT 2017
++run webcrawl -u 30 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 30 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 2039)]
+[Thread 0x7ffff62c7700 (LWP 2039) exited]
+[Inferior 1 (process 2035) exited normally]
++break main
+Breakpoint 1 at 0x401c67: file webcrawler.cpp, line 253.
++run webcrawl -u 30 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 30 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=5, argv=0x7fffffffe2b8) at webcrawler.cpp:253
+253	int main(int argc, char ** argv){
++n
+254		int nArgv = 0;
++n
+255		while(argv[nArgv] != NULL){
++s
+256			nArgv++;
++s
+255		while(argv[nArgv] != NULL){
++s
+256			nArgv++;
++s
+255		while(argv[nArgv] != NULL){
++s
+256			nArgv++;
++s
+255		while(argv[nArgv] != NULL){
++s
+256			nArgv++;
++s
+255		while(argv[nArgv] != NULL){
++s
+256			nArgv++;
++s
+255		while(argv[nArgv] != NULL){
++s
+260		if(nArgv < 2 || nArgv == 3){
++s
+263		} else if (nArgv == 2) { //webcrawl+url
++s
+292		} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
++s
+294			int maxUrls = atoi(argv[2]);
++s
+297			int nurlRoots = 0;
++s
+298			const char ** urlRoots = new const char * [nArgv-3];
++s
+300			char * http = new char [12];
++s
+301			strcpy(http, "http://www.");
++s
+302			size_t size = 11;
++s
+304			for(int i = 0; i < nArgv-3; i++){
++s
+305				char * temp = argv[i+3];
++s
+306				bool httpFormat = strncasecmp(http, temp, size) == 0;
++s
+308				if(httpFormat){
++s
+304			for(int i = 0; i < nArgv-3; i++){
++s
+305				char * temp = argv[i+3];
++s
+306				bool httpFormat = strncasecmp(http, temp, size) == 0;
++s
+308				if(httpFormat){
++s
+309					urlRoots[nurlRoots++] = temp;
++s
+304			for(int i = 0; i < nArgv-3; i++){
++s
+314			printf("Initialize web crawler...\n");
++s
+315			WebCrawler wc(maxUrls,nurlRoots,urlRoots);
++s
+WebCrawler::WebCrawler (this=0x7fffffffdf90, maxUrls=0, nurlRoots=1, urlRoots=0x605030) at webcrawler.cpp:13
+13	WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
++s
+SimpleHTMLParser::SimpleHTMLParser (this=0x7fffffffdf90) at SimpleHTMLParser.cpp:6
+6	SimpleHTMLParser::SimpleHTMLParser()
++s
+8	}
++s
+WebCrawler::WebCrawler (this=0x7fffffffdf90, maxUrls=0, nurlRoots=1, urlRoots=0x605030) at webcrawler.cpp:15
+15		_urlArray = new URLRecord[maxUrls]; 
++s
+16		_nInitialURLs = nurlRoots;
++s
+17		_maxUrls = maxUrls;
++s
+18		_headURL = 0;
++s
+19		_tailURL = nurlRoots;
++s
+20		_urlToUrlRecord = new HashTableTemplate<int>();
++s
+HashTableTemplate<int>::HashTableTemplate (this=0x605090) at HashTableTemplate.h:69
+69	  _buckets = new HashTableTemplateEntry<Data> * [2039];
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++s
+71	  for(int i = 0; i < TableSize; i++){
++s
+72		  _buckets[i] = NULL;
++bt
+#0  HashTableTemplate<int>::HashTableTemplate (this=0x605090) at HashTableTemplate.h:72
+#1  0x00000000004011f7 in WebCrawler::WebCrawler (this=0x7fffffffdf90, maxUrls=0, nurlRoots=1, urlRoots=0x605030)
+    at webcrawler.cpp:20
+#2  0x0000000000401fca in main (argc=5, argv=0x7fffffffe2b8) at webcrawler.cpp:315
++logout
+Undefined command: "logout".  Try "help".
++quit

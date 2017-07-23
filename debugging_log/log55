@@ -1,0 +1,33 @@
+Thu Jul 13 14:41:11 EDT 2017
++b openhttp.cpp : 44 thread 0x00007ffff6ffe970
+Unknown thread -151000720.
++run -u http://www.450 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u http://www.450 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 4457)]
+[Thread 0x7ffff62c7700 (LWP 4457) exited]
+[Inferior 1 (process 4453) exited normally]
++run -u http://www.450 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u http://www.450 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 4459)]
+[Thread 0x7ffff62c7700 (LWP 4459) exited]
+[Inferior 1 (process 4458) exited normally]
++b info
+Function "info" not defined.
++b list
+Function "list" not defined.
++info b
+No breakpoints or watchpoints.
++info threads
+No threads.
++run -u http://www.450 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u http://www.450 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 4620)]
+[Thread 0x7ffff62c7700 (LWP 4620) exited]
+[Inferior 1 (process 4619) exited normally]
++quit

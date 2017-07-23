@@ -1,0 +1,77 @@
+Sat Jul 8 01:51:35 EDT 2017
++b webcrawler.cpp:136
+Breakpoint 1 at 0x4017c0: file webcrawler.cpp, line 136.
++r
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 3295) exited with code 01]
++r u -10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl u -10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Program received signal SIGABRT, Aborted.
+0x00007ffff6fe92a7 in raise () from /lib64/libc.so.6
++bt
+#0  0x00007ffff6fe92a7 in raise () from /lib64/libc.so.6
+#1  0x00007ffff6fea6fa in abort () from /lib64/libc.so.6
+#2  0x00007ffff78c70ad in __gnu_cxx::__verbose_terminate_handler() ()
+   from /usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/libstdc++.so.6
+#3  0x00007ffff78c4ef6 in ?? () from /usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/libstdc++.so.6
+#4  0x00007ffff78c4f41 in std::terminate() ()
+   from /usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/libstdc++.so.6
+#5  0x00007ffff78c5158 in __cxa_throw () from /usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/libstdc++.so.6
+#6  0x00007ffff78c56e9 in operator new(unsigned long) ()
+   from /usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/libstdc++.so.6
+#7  0x00007ffff78c5759 in operator new[](unsigned long) ()
+   from /usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/libstdc++.so.6
+#8  0x00000000004011df in WebCrawler::WebCrawler (this=0x7fffffffe290, maxUrls=-10, nurlRoots=1, 
+    urlRoots=0x6057f0) at webcrawler.cpp:15
+#9  0x00000000004021a0 in main (argc=4, argv=0x7fffffffe5b8) at webcrawler.cpp:327
++r -u 10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 3308)]
+[Thread 0x7ffff62c7700 (LWP 3308) exited]
+[New Thread 0x7ffff62c7700 (LWP 3309)]
+[Thread 0x7ffff62c7700 (LWP 3309) exited]
+[New Thread 0x7ffff62c7700 (LWP 3310)]
+[Thread 0x7ffff62c7700 (LWP 3310) exited]
+[New Thread 0x7ffff62c7700 (LWP 3311)]
+[Thread 0x7ffff62c7700 (LWP 3311) exited]
+[New Thread 0x7ffff62c7700 (LWP 3312)]
+[Thread 0x7ffff62c7700 (LWP 3312) exited]
+[New Thread 0x7ffff62c7700 (LWP 3313)]
+[Thread 0x7ffff62c7700 (LWP 3313) exited]
+[New Thread 0x7ffff62c7700 (LWP 3314)]
+[Thread 0x7ffff62c7700 (LWP 3314) exited]
+[New Thread 0x7ffff62c7700 (LWP 3315)]
+[Thread 0x7ffff62c7700 (LWP 3315) exited]
+[New Thread 0x7ffff62c7700 (LWP 3316)]
+[Thread 0x7ffff62c7700 (LWP 3316) exited]
+[New Thread 0x7ffff62c7700 (LWP 3317)]
+[Thread 0x7ffff62c7700 (LWP 3317) exited]
+[New Thread 0x7ffff62c7700 (LWP 3318)]
+[Thread 0x7ffff62c7700 (LWP 3318) exited]
+[New Thread 0x7ffff62c7700 (LWP 3319)]
+[Thread 0x7ffff62c7700 (LWP 3319) exited]
+[New Thread 0x7ffff62c7700 (LWP 3320)]
+[Thread 0x7ffff62c7700 (LWP 3320) exited]
+[New Thread 0x7ffff62c7700 (LWP 3321)]
+[Thread 0x7ffff62c7700 (LWP 3321) exited]
+[New Thread 0x7ffff62c7700 (LWP 3322)]
+[Thread 0x7ffff62c7700 (LWP 3322) exited]
+[New Thread 0x7ffff62c7700 (LWP 3323)]
+[Thread 0x7ffff62c7700 (LWP 3323) exited]
+[New Thread 0x7ffff62c7700 (LWP 3324)]
+[Thread 0x7ffff62c7700 (LWP 3324) exited]
+[New Thread 0x7ffff62c7700 (LWP 3325)]
+[Thread 0x7ffff62c7700 (LWP 3325) exited]
+[New Thread 0x7ffff62c7700 (LWP 3326)]
+[Thread 0x7ffff62c7700 (LWP 3326) exited]
+[New Thread 0x7ffff62c7700 (LWP 3327)]
+[Thread 0x7ffff62c7700 (LWP 3327) exited]
+[Inferior 1 (process 3307) exited normally]
++q

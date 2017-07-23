@@ -1,0 +1,127 @@
+Sat Jul 8 14:19:21 EDT 2017
++b main
+Breakpoint 1 at 0x402153: file webcrawler.cpp, line 313.
++run
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe5e8) at webcrawler.cpp:313
+313	int main(int argc, char ** argv){
++n
+314		int nArgv = 0;
++n
+315		while(argv[nArgv] != NULL){
++n
+316			nArgv++;
++n
+315		while(argv[nArgv] != NULL){
++n
+320		if(nArgv < 2 || nArgv == 3){
++n
+321			printUsage();
++n
+322			return 1;
++n
+0x00007ffff6fd66d0 in __libc_start_main () from /lib64/libc.so.6
++n
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 10029) exited with code 01]
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++s
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++n
+The program is not being run.
++run -u 50 https://www.cs.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 50 https://www.cs.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=4, argv=0x7fffffffe5b8) at webcrawler.cpp:313
+313	int main(int argc, char ** argv){
++run
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 50 https://www.cs.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=4, argv=0x7fffffffe5b8) at webcrawler.cpp:313
+313	int main(int argc, char ** argv){
++n
+314		int nArgv = 0;
++n
+315		while(argv[nArgv] != NULL){
++n
+316			nArgv++;
++n
+315		while(argv[nArgv] != NULL){
++s
+316			nArgv++;
++s
+315		while(argv[nArgv] != NULL){
++s
+316			nArgv++;
++s
+315		while(argv[nArgv] != NULL){
++s
+316			nArgv++;
++s
+315		while(argv[nArgv] != NULL){
++s
+320		if(nArgv < 2 || nArgv == 3){
++s
+323		} else if (nArgv == 2) { //webcrawl+url
++s
+361		} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
++s
+363			int maxUrls = atoi(argv[2]);
++s
+366			int nurlRoots = 0;
++s
+367			const char ** urlRoots = new const char * [nArgv-3];
++s
+369			char * http = new char [12];
++s
+370			strcpy(http, "http://www.");
++s
+371			size_t size11 = 11;
++s
+372			char * https = new char [13];
++s
+373			strcpy(https, "https://www.");
++s
+374			size_t size12 = 12;
++s
+376			for(int i = 0; i < nArgv-3; i++){
++s
+377				char * temp = argv[i+3];
++quit

@@ -1,0 +1,115 @@
+Sat Jul 8 01:47:27 EDT 2017
++b SimpleHTMLParser.cpp:173
+Breakpoint 1 at 0x402f36: file SimpleHTMLParser.cpp, line 173.
++r
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 3205) exited with code 01]
++r -u 10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 3213)]
+[Thread 0x7ffff62c7700 (LWP 3213) exited]
+[New Thread 0x7ffff62c7700 (LWP 3214)]
+[Thread 0x7ffff62c7700 (LWP 3214) exited]
+[New Thread 0x7ffff62c7700 (LWP 3215)]
+[Thread 0x7ffff62c7700 (LWP 3215) exited]
+[New Thread 0x7ffff62c7700 (LWP 3216)]
+[Thread 0x7ffff62c7700 (LWP 3216) exited]
+[New Thread 0x7ffff62c7700 (LWP 3217)]
+[Thread 0x7ffff62c7700 (LWP 3217) exited]
+[New Thread 0x7ffff62c7700 (LWP 3218)]
+[Thread 0x7ffff62c7700 (LWP 3218) exited]
+[New Thread 0x7ffff62c7700 (LWP 3219)]
+[Thread 0x7ffff62c7700 (LWP 3219) exited]
+[New Thread 0x7ffff62c7700 (LWP 3220)]
+[Thread 0x7ffff62c7700 (LWP 3220) exited]
+[New Thread 0x7ffff62c7700 (LWP 3221)]
+[Thread 0x7ffff62c7700 (LWP 3221) exited]
+[New Thread 0x7ffff62c7700 (LWP 3222)]
+[Thread 0x7ffff62c7700 (LWP 3222) exited]
+[New Thread 0x7ffff62c7700 (LWP 3223)]
+[Thread 0x7ffff62c7700 (LWP 3223) exited]
+[New Thread 0x7ffff62c7700 (LWP 3224)]
+[Thread 0x7ffff62c7700 (LWP 3224) exited]
+[New Thread 0x7ffff62c7700 (LWP 3225)]
+[Thread 0x7ffff62c7700 (LWP 3225) exited]
+[New Thread 0x7ffff62c7700 (LWP 3226)]
+[Thread 0x7ffff62c7700 (LWP 3226) exited]
+[New Thread 0x7ffff62c7700 (LWP 3227)]
+[Thread 0x7ffff62c7700 (LWP 3227) exited]
+[New Thread 0x7ffff62c7700 (LWP 3228)]
+[Thread 0x7ffff62c7700 (LWP 3228) exited]
+[New Thread 0x7ffff62c7700 (LWP 3229)]
+[Thread 0x7ffff62c7700 (LWP 3229) exited]
+[New Thread 0x7ffff62c7700 (LWP 3230)]
+[Thread 0x7ffff62c7700 (LWP 3230) exited]
+[New Thread 0x7ffff62c7700 (LWP 3231)]
+[Thread 0x7ffff62c7700 (LWP 3231) exited]
+[New Thread 0x7ffff62c7700 (LWP 3232)]
+[Thread 0x7ffff62c7700 (LWP 3232) exited]
+[Inferior 1 (process 3212) exited normally]
++b SimpleHTMLParser.cpp:173
+Note: breakpoint 1 also set at pc 0x402f36.
+Breakpoint 2 at 0x402f36: file SimpleHTMLParser.cpp, line 173.
++r -u 10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 3237)]
+[Thread 0x7ffff62c7700 (LWP 3237) exited]
+[New Thread 0x7ffff62c7700 (LWP 3238)]
+[Thread 0x7ffff62c7700 (LWP 3238) exited]
+[New Thread 0x7ffff62c7700 (LWP 3239)]
+[Thread 0x7ffff62c7700 (LWP 3239) exited]
+[New Thread 0x7ffff62c7700 (LWP 3240)]
+[Thread 0x7ffff62c7700 (LWP 3240) exited]
+[New Thread 0x7ffff62c7700 (LWP 3241)]
+[Thread 0x7ffff62c7700 (LWP 3241) exited]
+[New Thread 0x7ffff62c7700 (LWP 3242)]
+[Thread 0x7ffff62c7700 (LWP 3242) exited]
+[New Thread 0x7ffff62c7700 (LWP 3243)]
+[Thread 0x7ffff62c7700 (LWP 3243) exited]
+[New Thread 0x7ffff62c7700 (LWP 3244)]
+[Thread 0x7ffff62c7700 (LWP 3244) exited]
+[New Thread 0x7ffff62c7700 (LWP 3245)]
+[Thread 0x7ffff62c7700 (LWP 3245) exited]
+[New Thread 0x7ffff62c7700 (LWP 3246)]
+[Thread 0x7ffff62c7700 (LWP 3246) exited]
+[New Thread 0x7ffff62c7700 (LWP 3247)]
+[Thread 0x7ffff62c7700 (LWP 3247) exited]
+[New Thread 0x7ffff62c7700 (LWP 3248)]
+[Thread 0x7ffff62c7700 (LWP 3248) exited]
+[New Thread 0x7ffff62c7700 (LWP 3249)]
+[Thread 0x7ffff62c7700 (LWP 3249) exited]
+[New Thread 0x7ffff62c7700 (LWP 3250)]
+[Thread 0x7ffff62c7700 (LWP 3250) exited]
+[New Thread 0x7ffff62c7700 (LWP 3251)]
+[Thread 0x7ffff62c7700 (LWP 3251) exited]
+[New Thread 0x7ffff62c7700 (LWP 3252)]
+[Thread 0x7ffff62c7700 (LWP 3252) exited]
+[New Thread 0x7ffff62c7700 (LWP 3253)]
+[Thread 0x7ffff62c7700 (LWP 3253) exited]
+[New Thread 0x7ffff62c7700 (LWP 3254)]
+[Thread 0x7ffff62c7700 (LWP 3254) exited]
+[New Thread 0x7ffff62c7700 (LWP 3255)]
+[Thread 0x7ffff62c7700 (LWP 3255) exited]
+[New Thread 0x7ffff62c7700 (LWP 3256)]
+[Thread 0x7ffff62c7700 (LWP 3256) exited]
+[Inferior 1 (process 3236) exited normally]
++list
+251				index = curr->_urlRecordIndex;
+252				curr = curr->_next;
+253			}
+254			fprintf(fp, "\n");
+255		}
+256		fclose(fp);
+257	}
+258	
+259	void
+260	printUsage(){
++n
+The program is not being run.
++q

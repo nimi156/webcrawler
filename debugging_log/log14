@@ -1,0 +1,661 @@
+Thu Jul 6 16:57:15 EDT 2017
++break main
+Breakpoint 1 at 0x401c57: file webcrawler.cpp, line 255.
++run webcrawl -u 1 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:255
+255	int main(int argc, char ** argv){
++n
+256		int nArgv = 0;
++n
+257		while(argv[nArgv] != NULL){
++n
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+262		if(nArgv < 2 || nArgv == 3){
++s
+265		} else if (nArgv == 2) { //webcrawl+url
++s
+290		} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
++s
+292			int maxUrls = atoi(argv[2]);
++n
+295			int nurlRoots = 0;
++n
+296			const char ** urlRoots = new const char * [nArgv - 3];
++n
+297			char * http = new char [12];
++n
+298			strcpy(http, "http://www.");
++n
+299			size_t size = 11;
++n
+301			for(int i = 0; i < nArgv; i++){
++n
+302				char * temp = argv[i+3];
++s
+303				bool httpFormat = strncasecmp(http, temp, size) == 0;
++s
+305				if(httpFormat){
++s
+301			for(int i = 0; i < nArgv; i++){
++s
+302				char * temp = argv[i+3];
++s
+303				bool httpFormat = strncasecmp(http, temp, size) == 0;
++s
+305				if(httpFormat){
++s
+306					urlRoots[nurlRoots++] = temp;
++s
+301			for(int i = 0; i < nArgv; i++){
++s
+302				char * temp = argv[i+3];
++s
+303				bool httpFormat = strncasecmp(http, temp, size) == 0;
++s
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff70dce3b in __strncasecmp_l_avx () from /lib64/libc.so.6
++bt
+#0  0x00007ffff70dce3b in __strncasecmp_l_avx () from /lib64/libc.so.6
+#1  0x0000000000401f2c in main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:303
++list
+298			strcpy(http, "http://www.");
+299			size_t size = 11;
+300			
+301			for(int i = 0; i < nArgv; i++){
+302				char * temp = argv[i+3];
+303				bool httpFormat = strncasecmp(http, temp, size) == 0;
+304	
+305				if(httpFormat){
+306					urlRoots[nurlRoots++] = temp;
+307				}
++where
+#0  0x00007ffff70dce3b in __strncasecmp_l_avx () from /lib64/libc.so.6
+#1  0x0000000000401f2c in main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:303
++make
++run webcrawl -u 1 http://www.purdue.edu
+`/u/data/u89/wang2226/cs251/lab2-src/webcrawl' has changed; re-reading symbols.
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:255
+255	int main(int argc, char ** argv){
++n
+256		int nArgv = 0;
++n
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+262		if(nArgv < 2 || nArgv == 3){
++s
+265		} else if (nArgv == 2) { //webcrawl+url
++s
+290		} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
++s
+292			int maxUrls = atoi(argv[2]);
++s
+295			int nurlRoots = 0;
++s
+296			const char ** urlRoots = new const char * [nArgv - 3];
++s
+297			char * http = new char [12];
++s
+298			strcpy(http, "http://www.");
++s
+299			size_t size = 11;
++s
+301			for(int i = 0; i < nArgv-3; i++){
++s
+302				char * temp = argv[i+3];
++s
+303				bool httpFormat = strncasecmp(http, temp, size) == 0;
++s
+305				if(httpFormat){
++s
+301			for(int i = 0; i < nArgv-3; i++){
++s
+302				char * temp = argv[i+3];
++s
+303				bool httpFormat = strncasecmp(http, temp, size) == 0;
++s
+305				if(httpFormat){
++s
+306					urlRoots[nurlRoots++] = temp;
++s
+301			for(int i = 0; i < nArgv-3; i++){
++s
+311			printf("Initialize web crawler...\n");
++s
+312			WebCrawler wc(maxUrls,nurlRoots,urlRoots);
++s
+WebCrawler::WebCrawler (this=0x7fffffffe280, maxUrls=0, nurlRoots=1, urlRoots=0x605030)
+    at webcrawler.cpp:13
+13	WebCrawler::WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots){
++s
+SimpleHTMLParser::SimpleHTMLParser (this=0x7fffffffe280) at SimpleHTMLParser.cpp:6
+6	SimpleHTMLParser::SimpleHTMLParser()
++bt
+#0  SimpleHTMLParser::SimpleHTMLParser (this=0x7fffffffe280) at SimpleHTMLParser.cpp:6
+#1  0x000000000040116b in WebCrawler::WebCrawler (this=0x7fffffffe280, maxUrls=0, nurlRoots=1, 
+    urlRoots=0x605030) at webcrawler.cpp:13
+#2  0x0000000000401fb5 in main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:312
++n
+8	}
++n
+WebCrawler::WebCrawler (this=0x7fffffffe280, maxUrls=0, nurlRoots=1, urlRoots=0x605030)
+    at webcrawler.cpp:15
+15		_urlArray = new URLRecord[maxUrls]; 
++n
+16		_nInitialURLs = nurlRoots;
++n
+17		_maxUrls = maxUrls;
++n
+18		_headURL = 0;
++n
+19		_tailURL = nurlRoots;
++n
+20		_urlToUrlRecord = new HashTableTemplate<int>();
++n
+21		_wordToURLRecordList = new HashTableTemplate<URLRecordList *>();
++n
+24		for(int i = 0; i < nurlRoots; i++){
++n
+25			int size = strlen(urlRoots[i]) + 1;
++n
+27			_urlArray[i]._url = (char *)malloc(size * sizeof(char)); 
++n
+28			strcpy(_urlArray[i]._url, urlRoots[i]);
++n
+30			_urlArray[i]._description = (char *)malloc(500 * sizeof(char));
++n
+31			strcpy(_urlArray[i]._description, "");
++n
+33			_urlToUrlRecord->insertItem(urlRoots[i], i);
++n
+24		for(int i = 0; i < nurlRoots; i++){
++n
+35	}
++s
+main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:313
+313			printf("Processing...\n");
++s
+314			wc.crawl();
++s
+WebCrawler::crawl (this=0x7fffffffe280) at webcrawler.cpp:42
+42	WebCrawler::crawl(){
++s
+43		while(_headURL <= _tailURL){
++s
+45			char * url = _urlArray[_headURL]._url;
++s
+46			int n = 0;
++s
+47			char * buffer = fetchHTML(url, &n);
++s
+fetchHTML (url=0x60d050 "http://www.purdue.edu", n=0x7fffffffe1f4) at openhttp.cpp:43
+43	char * fetchHTML( const char * url, int * n) {
++s
+45	    CURL * curl = curl_easy_init();
++s
+47	    if(!curl) {
++s
+52	    init_pstring(&s);
++s
+init_pstring (s=0x7fffffffe1b0) at openhttp.cpp:17
+17	  s->len = 0;
++s
+18	  s->ptr = (char*) malloc(s->len+1);
++s
+19	  if (s->ptr == NULL) {
++s
+23	  s->ptr[0] = '\0';
++s
+24	}
++s
+fetchHTML (url=0x60d050 "http://www.purdue.edu", n=0x7fffffffe1f4) at openhttp.cpp:54
+54	    curl_easy_setopt(curl, CURLOPT_URL, url);
++s
+55	    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writefunc);
++s
+56	    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &s);
++s
+57	    res = curl_easy_perform(curl);
++s
+[New Thread 0x7ffff62c7700 (LWP 27527)]
+[Thread 0x7ffff62c7700 (LWP 27527) exited]
+60	    curl_easy_cleanup(curl);
++s
+62	    *n = s.len;
++s
+64	    return s.ptr;
++s
+65	}
++s
+WebCrawler::crawl (this=0x7fffffffe280) at webcrawler.cpp:49
+49			if(buffer != NULL){
++s
+50				parse(buffer, n);
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:22
+22	{
++s
+26		state = START;
++s
+28		char * bufferEnd = buffer + n;
++s
+29		char * b = buffer;
++s
+30		bool lastCharSpace = false;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+35				if (match(&b,"<SCRIPT")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402da8 "<SCRIPT")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:38
+38				else if (match(&b,"<!--")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402db0 "<!--")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:41
+41				else if (match(&b,"<A ")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402db5 "<A ")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:44
+44				else if (match(&b,"<FRAME ")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402db9 "<FRAME ")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:47
+47				else if	(match(&b,"<")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dc1 "<")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+14			(*b)+=len;
++s
+15			return true;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:48
+48					state = TAG;
++s
+66				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++s
+33			switch (state) {
++s
+157				if (match(&b, ">")) {
++s
+SimpleHTMLParser::match (this=0x7fffffffe280, b=0x7fffffffe1b8, m=0x402dca ">")
+    at SimpleHTMLParser.cpp:12
+12		int len = strlen(m);
++s
+13		if ( !strncasecmp(*b, m, len)) {
++s
+17		return false;
++s
+18	}
++s
+SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x63f660 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:161
+161					b++;
++s
+163				break;
++s
+31		while (b < bufferEnd) {
++quit

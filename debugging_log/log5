@@ -1,0 +1,27 @@
+Thu Jul 6 16:32:15 EDT 2017
++ll
+Undefined command: "ll".  Try "help".
++run webcrawl http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 23766) exited with code 01]
++bt
+No stack.
++list
+238					fprintf(fp, "%d", recordIndex[j]);
+239				}
+240				temp = temp->_next;
+241			}
+242		}
+243		fclose(fp);
+244	}
+245	
+246	void
+247	printUsage(){
++run webcrawl -u 1 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 23774) exited with code 01]
++quit

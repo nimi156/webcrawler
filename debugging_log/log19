@@ -1,0 +1,187 @@
+Sat Jul 8 01:35:11 EDT 2017
++r -u 10 htttp://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 htttp://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[Inferior 1 (process 2947) exited normally]
++b webcrawler.cpp:326
+Breakpoint 1 at 0x402174: file webcrawler.cpp, line 326.
++r -u 10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=4, argv=0x7fffffffe5b8) at webcrawler.cpp:326
+326			printf("Initialize web crawler...\n");
++list
+321					urlRoots[nurlRoots++] = temp;
+322				}
+323			}
+324	
+325			//Start crawling
+326			printf("Initialize web crawler...\n");
+327			WebCrawler wc(maxUrls,nurlRoots,urlRoots);
+328			printf("Processing...\n");
+329			wc.crawl();
+330			printf("Making url.txt...\n");
++n
+327			WebCrawler wc(maxUrls,nurlRoots,urlRoots);
++n
+328			printf("Processing...\n");
++n
+329			wc.crawl();
++s
+WebCrawler::crawl (this=0x7fffffffe290) at webcrawler.cpp:39
+39	WebCrawler::crawl(){
++n
+41		while(_headURL < _tailURL){
++n
+43			char * url = _urlArray[_headURL]._url;
++n
+44			int n = 0;
++p url
+$1 = 0x60d8a0 "http://www.purdue.edu"
++n
+45			char * buffer = fetchHTML(url, &n);
++n
+[New Thread 0x7ffff62c7700 (LWP 2986)]
+[Thread 0x7ffff62c7700 (LWP 2986) exited]
+47			if(buffer != NULL){
++n
+48				parse(buffer, n);
++n
+[New Thread 0x7ffff62c7700 (LWP 2987)]
+[Thread 0x7ffff62c7700 (LWP 2987) exited]
+[New Thread 0x7ffff62c7700 (LWP 2988)]
+[Thread 0x7ffff62c7700 (LWP 2988) exited]
+[New Thread 0x7ffff62c7700 (LWP 2989)]
+[Thread 0x7ffff62c7700 (LWP 2989) exited]
+[New Thread 0x7ffff62c7700 (LWP 2990)]
+[Thread 0x7ffff62c7700 (LWP 2990) exited]
+[New Thread 0x7ffff62c7700 (LWP 2991)]
+[Thread 0x7ffff62c7700 (LWP 2991) exited]
+[New Thread 0x7ffff62c7700 (LWP 2992)]
+[Thread 0x7ffff62c7700 (LWP 2992) exited]
+[New Thread 0x7ffff62c7700 (LWP 2993)]
+[Thread 0x7ffff62c7700 (LWP 2993) exited]
+[New Thread 0x7ffff62c7700 (LWP 2994)]
+[Thread 0x7ffff62c7700 (LWP 2994) exited]
+[New Thread 0x7ffff62c7700 (LWP 2995)]
+[Thread 0x7ffff62c7700 (LWP 2995) exited]
+[New Thread 0x7ffff62c7700 (LWP 2996)]
+[Thread 0x7ffff62c7700 (LWP 2996) exited]
+50			free(buffer);
++list
+45			char * buffer = fetchHTML(url, &n);
+46			//call function parse
+47			if(buffer != NULL){
+48				parse(buffer, n);
+49			}
+50			free(buffer);
+51	
+52			strcat(_urlArray[_headURL]._description, "\0");
+53	
+54			//increment _headURL
++n
+55			_headURL++;
++p _headURL
+$2 = 0
++p _urlArray[0]._description
+$3 = 0x60d8c0 ""
++c
+Continuing.
+[New Thread 0x7ffff62c7700 (LWP 3027)]
+[Thread 0x7ffff62c7700 (LWP 3027) exited]
+[New Thread 0x7ffff62c7700 (LWP 3028)]
+[Thread 0x7ffff62c7700 (LWP 3028) exited]
+[New Thread 0x7ffff62c7700 (LWP 3029)]
+[Thread 0x7ffff62c7700 (LWP 3029) exited]
+[New Thread 0x7ffff62c7700 (LWP 3030)]
+[Thread 0x7ffff62c7700 (LWP 3030) exited]
+[New Thread 0x7ffff62c7700 (LWP 3031)]
+[Thread 0x7ffff62c7700 (LWP 3031) exited]
+[New Thread 0x7ffff62c7700 (LWP 3032)]
+[Thread 0x7ffff62c7700 (LWP 3032) exited]
+[New Thread 0x7ffff62c7700 (LWP 3033)]
+[Thread 0x7ffff62c7700 (LWP 3033) exited]
+[New Thread 0x7ffff62c7700 (LWP 3034)]
+[Thread 0x7ffff62c7700 (LWP 3034) exited]
+[New Thread 0x7ffff62c7700 (LWP 3035)]
+[Thread 0x7ffff62c7700 (LWP 3035) exited]
+[Inferior 1 (process 2982) exited normally]
++r -u 10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=4, argv=0x7fffffffe5b8) at webcrawler.cpp:326
+326			printf("Initialize web crawler...\n");
++n
+327			WebCrawler wc(maxUrls,nurlRoots,urlRoots);
++n
+328			printf("Processing...\n");
++n
+329			wc.crawl();
++s
+WebCrawler::crawl (this=0x7fffffffe290) at webcrawler.cpp:39
+39	WebCrawler::crawl(){
++n
+41		while(_headURL < _tailURL){
++n
+43			char * url = _urlArray[_headURL]._url;
++p _headURL
+$4 = 0
++p _tailURL
+$5 = 1
++n
+44			int n = 0;
++n
+45			char * buffer = fetchHTML(url, &n);
++n
+[New Thread 0x7ffff62c7700 (LWP 3043)]
+[Thread 0x7ffff62c7700 (LWP 3043) exited]
+47			if(buffer != NULL){
++p buffer
+$6 = 0x63feb0 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"...
++n
+48				parse(buffer, n);
++s
+SimpleHTMLParser::parse (this=0x7fffffffe290, 
+    buffer=0x63feb0 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"..., n=20452) at SimpleHTMLParser.cpp:22
+22	{
++list
+17		return false;
+18	}
+19	
+20	bool
+21	SimpleHTMLParser::parse(char * buffer, int n)
+22	{
+23		enum { START, TAG, SCRIPT, ANCHOR, HREF,
+24		       COMMENT, FRAME, SRC, META, TITLE} state;
+25	
+26		state = START;
++n
+26		state = START;
++n
+28		char * bufferEnd = buffer + n;
++n
+29		char * b = buffer;
++n
+30		bool lastCharSpace = false;
++p b
+$7 = 0x63feb0 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"...
++n
+31		while (b < bufferEnd) {
++n
+33			switch (state) {
++n
+35				if (match(&b,"<SCRIPT")) {
++n
+38				else if (match(&b,"<!--")) {
++n
+41				else if (match(&b,"<A ")) {
++p b
+$8 = 0x63feb0 "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" class=\"no-js\" lang=\"en\">\n<head>\n\n\n\n\n<meta content=\"Learn about Purdue University, a major research university located in Lafayette, Indiana k"...
++n
+44				else if (match(&b,"<FRAME ")) {
++q

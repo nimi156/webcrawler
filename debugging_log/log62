@@ -1,0 +1,81 @@
+Sat Jul 15 08:33:48 EDT 2017
++r -url 1 https://www.housing.purdue.edu/
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 1 https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 7596)]
+[Thread 0x7ffff62c7700 (LWP 7596) exited]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff70376ea in strlen () from /lib64/libc.so.6
++bt
+#0  0x00007ffff70376ea in strlen () from /lib64/libc.so.6
+#1  0x0000000000401da6 in WebCrawler::onContentFound (this=0x7fffffffe280, c=18 '\022')
+    at webcrawler.cpp:184
+#2  0x0000000000403755 in SimpleHTMLParser::parse (this=0x7fffffffe280, 
+    buffer=0x6fdbd0 " \n<!DOCTYPE html> \n<!--[if lt IE 7]>      <html class=\"no-js oldie lt-ie9 lt-ie8 lt-ie7\" lang=\"en\"> <![endif]-->\n<!--[if IE 7]>         <html class=\"no-js oldie ie7 lt-ie9 lt-ie8\" lang=\"en\"> <![endif]"..., n=27541) at SimpleHTMLParser.cpp:181
+#3  0x000000000040176e in WebCrawler::crawl (this=0x7fffffffe280) at webcrawler.cpp:63
+#4  0x0000000000402a54 in main (argc=4, argv=0x7fffffffe5a8) at webcrawler.cpp:413
++make
++r -url 1 https://www.housing.purdue.edu/
+`/u/data/u89/wang2226/cs251/lab2-src/webcrawl' has changed; re-reading symbols.
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 1 https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 7620)]
+[Thread 0x7ffff62c7700 (LWP 7620) exited]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe280, 
+    urlFileName=0x403973 "url.txt") at webcrawler.cpp:280
+280			while(_urlArray[i]._description[j] != '\0'){
++bt
+#0  0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe280, 
+    urlFileName=0x403973 "url.txt") at webcrawler.cpp:280
+#1  0x00000000004029b0 in main (argc=4, argv=0x7fffffffe5a8) at webcrawler.cpp:415
++make
++r -url 1 https://www.housing.purdue.edu/
+`/u/data/u89/wang2226/cs251/lab2-src/webcrawl' has changed; re-reading symbols.
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 1 https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 7857)]
+[Thread 0x7ffff62c7700 (LWP 7857) exited]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe280, 
+    urlFileName=0x403953 "url.txt") at webcrawler.cpp:280
+280			while(_urlArray[i]._description[j] != '\0'){
++bt
+#0  0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe280, 
+    urlFileName=0x403953 "url.txt") at webcrawler.cpp:280
+#1  0x00000000004029b0 in main (argc=4, argv=0x7fffffffe5a8) at webcrawler.cpp:415
++b webcrawler.cpp:273
+Breakpoint 1 at 0x4021e5: file webcrawler.cpp, line 273.
++r -url 1 https://www.housing.purdue.edu/
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 1 https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 7879)]
+[Thread 0x7ffff62c7700 (LWP 7879) exited]
+
+Breakpoint 1, WebCrawler::writeURLFile (this=0x7fffffffe280, urlFileName=0x403953 "url.txt")
+    at webcrawler.cpp:275
+275		for(int i = 0; i < _tailURL; i++){
++p _headURl
+No symbol "_headURl" in current context.
++p _headURL
+$1 = 1
++p _tailURL
+$2 = 1
++p urlARRay
+No symbol "urlARRay" in current context.
++p _urlARRay
+No symbol "_urlARRay" in current context.
++p _urlARRay[0]
+No symbol "_urlARRay" in current context.
++p _urlArray[0]
+$3 = {_url = 0x0, _description = 0x0, html = 0x0, size = 0}
++n
+277			fprintf(fp, "%d %s\n", i, _urlArray[i]._url);
++quit

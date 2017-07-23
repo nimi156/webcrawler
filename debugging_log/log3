@@ -1,0 +1,10 @@
+Thu Jul 6 16:22:29 EDT 2017
++run
+Starting program:  
+No executable file specified.
+Use the "file" or "exec-file" command.
++run webcrawl
+Starting program:  webcrawl
+No executable file specified.
+Use the "file" or "exec-file" command.
++quit

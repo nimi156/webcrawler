@@ -1,0 +1,84 @@
+Sat Jul 8 00:35:57 EDT 2017
++r webcrawler http://www.purdue.edu
+Starting program:  webcrawler http://www.purdue.edu
+No executable file specified.
+Use the "file" or "exec-file" command.
++help
+List of classes of commands:
+
+aliases -- Aliases of other commands
+breakpoints -- Making program stop at certain points
+data -- Examining data
+files -- Specifying and examining files
+internals -- Maintenance commands
+obscure -- Obscure features
+running -- Running the program
+stack -- Examining the stack
+status -- Status inquiries
+support -- Support facilities
+tracepoints -- Tracing of program execution without stopping the program
+user-defined -- User-defined commands
+
+Type "help" followed by a class name for a list of commands in that class.
+Type "help all" for the list of all commands.
+Type "help" followed by command name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Command name abbreviations are allowed if unambiguous.
++running
+Undefined command: "running".  Try "help".
++help running
+Running the program.
+
+List of commands:
+
+advance -- Continue the program up to the given location (same form as args for break command)
+attach -- Attach to a process or file outside of GDB
+continue -- Continue program being debugged
+detach -- Detach a process or file previously attached
+detach checkpoint -- Detach from a checkpoint (experimental)
+detach inferiors -- Detach from inferior ID (or list of IDS)
+disconnect -- Disconnect from a target
+finish -- Execute until selected stack frame returns
+handle -- Specify how to handle signals
+inferior -- Use this command to switch between inferiors
+interrupt -- Interrupt the execution of the debugged program
+jump -- Continue program being debugged at specified line or address
+kill -- Kill execution of program being debugged
+kill inferiors -- Kill inferior ID (or list of IDs)
+next -- Step program
+nexti -- Step one instruction
+queue-signal -- Queue a signal to be delivered to the current thread when it is resumed
+reverse-continue -- Continue program being debugged but run it in reverse
+reverse-finish -- Execute backward until just before selected stack frame is called
+reverse-next -- Step program backward
+reverse-nexti -- Step backward one instruction
+reverse-step -- Step program backward until it reaches the beginning of another source line
+reverse-stepi -- Step backward exactly one instruction
+run -- Start debugged program
+signal -- Continue program with the specified signal
+start -- Run the debugged program until the beginning of the main procedure
+step -- Step program until it reaches a different source line
+stepi -- Step one instruction exactly
+target -- Connect to a target machine or process
+target core -- Use a core file as a target
+target exec -- Use an executable file as a target
+target extended-remote -- Use a remote computer via a serial line
+target native -- Native process (started by the "run" command)
+target record -- Log program while executing and replay execution from log
+target record-btrace -- Collect control-flow trace and provide the execution history
+target record-core -- Log program while executing and replay execution from log
+target record-full -- Log program while executing and replay execution from log
+target remote -- Use a remote computer via a serial line
+target tfile -- Use a trace file as a target
+task -- Use this command to switch between Ada tasks
+thread -- Use this command to switch between threads
+thread apply -- Apply a command to a list of threads
+thread apply all -- Apply a command to all threads
+thread find -- Find threads that match a regular expression
+thread name -- Set the current thread's name
+until -- Execute until the program reaches a source line greater than the current
+
+Type "help" followed by command name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Command name abbreviations are allowed if unambiguous.
++q

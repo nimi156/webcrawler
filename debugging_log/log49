@@ -1,0 +1,10 @@
+Wed Jul 12 11:33:34 EDT 2017
++run webcrawl -u 408 http://www.purdue.edu
+Starting program:  webcrawl -u 408 http://www.purdue.edu
+No executable file specified.
+Use the "file" or "exec-file" command.
++run -u 408 http://www.purdue.edu
+Starting program:  -u 408 http://www.purdue.edu
+No executable file specified.
+Use the "file" or "exec-file" command.
++q

@@ -1,0 +1,160 @@
+Thu Jul 6 16:47:49 EDT 2017
++break main
+Breakpoint 1 at 0x401c57: file webcrawler.cpp, line 255.
++run webcrawl -u 1 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:255
+warning: Source file is more recent than executable.
+255	int main(int argc, char ** argv){
++n
+256		int nArgv = 0;
++n
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+262		if(nArgv < 2 || nArgv == 3){
++s
+265		} else if (nArgv == 2) { //webcrawl+url
++s
+290		} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
++s
+292			if(strcmp(argv[1], "-u") != 0){
++s
+293				printUsage();
++s
+printUsage () at webcrawler.cpp:251
+251		fprintf(stderr, "Usage: webcrawl [-u <maxurls>] url-list\n");
++bt
+#0  printUsage () at webcrawler.cpp:251
+#1  0x0000000000401e66 in main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:293
++s
+252	}
++s
+main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:294
+294				return 1;
++s
+0x00007ffff6fd66d0 in __libc_start_main () from /lib64/libc.so.6
++s
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 26875) exited with code 01]
++s
+The program is not being run.
++bt
+No stack.
++wehre
+Undefined command: "wehre".  Try "help".
++where
+No stack.
++list
+289			delete [] http;
+290		} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
+291			//invalid option
+292			if(strcmp(argv[1], "-u") != 0){
+293				printUsage();
+294				return 1;
+295			}
+296			//get maxUrls
+297			int maxUrls = atoi(argv[2]);
+298	
++list
+299			//check format of urlRoots
+300			int nurlRoots = 0;
+301			const char ** urlRoots = new const char * [nArgv - 3];
+302			char * http = new char [12];
+303			strcpy(http, "http://www.");
+304			size_t size = 11;
+305			
+306			for(int i = 0; i < nArgv; i++){
+307				char * temp = argv[i+3];
+308				bool httpFormat = strncasecmp(http, temp, size) == 0;
++list
+309	
+310				if(httpFormat){
+311					urlRoots[nurlRoots++] = temp;
+312				}
+313			}
+314	
+315			//Start webcrawling
+316			printf("Initialize web crawler...\n");
+317			WebCrawler wc(maxUrls,nurlRoots,urlRoots);
+318			printf("Processing...\n");
++run
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:255
+255	int main(int argc, char ** argv){
++run webcrawl -u 1 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl webcrawl -u 1 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Breakpoint 1, main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:255
+255	int main(int argc, char ** argv){
++n
+256		int nArgv = 0;
++n
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+258			nArgv++;
++s
+257		while(argv[nArgv] != NULL){
++s
+262		if(nArgv < 2 || nArgv == 3){
++s
+265		} else if (nArgv == 2) { //webcrawl+url
++s
+290		} else if (nArgv >= 4){ //webcrawl + -u + maxurls + url-list
++s
+292			if(strcmp(argv[1], "-u") != 0){
++s
+293				printUsage();
++s
+printUsage () at webcrawler.cpp:251
+251		fprintf(stderr, "Usage: webcrawl [-u <maxurls>] url-list\n");
++n
+252	}
++n
+main (argc=5, argv=0x7fffffffe5a8) at webcrawler.cpp:294
+294				return 1;
++quit

@@ -1,0 +1,55 @@
+Sat Jul 8 03:19:47 EDT 2017
++r -u 10 http://www.purdue.edu
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -u 10 http://www.purdue.edu
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 6145)]
+[Thread 0x7ffff62c7700 (LWP 6145) exited]
+[New Thread 0x7ffff62c7700 (LWP 6146)]
+[Thread 0x7ffff62c7700 (LWP 6146) exited]
+[New Thread 0x7ffff62c7700 (LWP 6147)]
+[Thread 0x7ffff62c7700 (LWP 6147) exited]
+[New Thread 0x7ffff62c7700 (LWP 6148)]
+[Thread 0x7ffff62c7700 (LWP 6148) exited]
+[New Thread 0x7ffff62c7700 (LWP 6149)]
+[Thread 0x7ffff62c7700 (LWP 6149) exited]
+[New Thread 0x7ffff62c7700 (LWP 6150)]
+[Thread 0x7ffff62c7700 (LWP 6150) exited]
+[New Thread 0x7ffff62c7700 (LWP 6151)]
+[Thread 0x7ffff62c7700 (LWP 6151) exited]
+[New Thread 0x7ffff62c7700 (LWP 6152)]
+[Thread 0x7ffff62c7700 (LWP 6152) exited]
+[New Thread 0x7ffff62c7700 (LWP 6153)]
+[Thread 0x7ffff62c7700 (LWP 6153) exited]
+[New Thread 0x7ffff62c7700 (LWP 6154)]
+[Thread 0x7ffff62c7700 (LWP 6154) exited]
+[New Thread 0x7ffff62c7700 (LWP 6155)]
+[Thread 0x7ffff62c7700 (LWP 6155) exited]
+[New Thread 0x7ffff62c7700 (LWP 6156)]
+[Thread 0x7ffff62c7700 (LWP 6156) exited]
+[New Thread 0x7ffff62c7700 (LWP 6157)]
+[Thread 0x7ffff62c7700 (LWP 6157) exited]
+[New Thread 0x7ffff62c7700 (LWP 6158)]
+[Thread 0x7ffff62c7700 (LWP 6158) exited]
+[New Thread 0x7ffff62c7700 (LWP 6159)]
+[Thread 0x7ffff62c7700 (LWP 6159) exited]
+[New Thread 0x7ffff62c7700 (LWP 6160)]
+[Thread 0x7ffff62c7700 (LWP 6160) exited]
+[New Thread 0x7ffff62c7700 (LWP 6161)]
+[Thread 0x7ffff62c7700 (LWP 6161) exited]
+[New Thread 0x7ffff62c7700 (LWP 6162)]
+[Thread 0x7ffff62c7700 (LWP 6162) exited]
+[New Thread 0x7ffff62c7700 (LWP 6163)]
+[Thread 0x7ffff62c7700 (LWP 6163) exited]
+[New Thread 0x7ffff62c7700 (LWP 6164)]
+[Thread 0x7ffff62c7700 (LWP 6164) exited]
+
+Program received signal SIGINT, Interrupt.
+0x0000000000401c07 in WebCrawler::writeURLFile (this=0x7fffffffe290, urlFileName=0x40320b "url.txt")
+    at webcrawler.cpp:224
+224				if((int)c == 32 || isalpha(c) || isdigit(c))
++p i
+$1 = 0
++p j
+$2 = 18
++q

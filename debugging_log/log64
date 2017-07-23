@@ -1,0 +1,22 @@
+Sun Jul 16 07:33:04 EDT 2017
++b webcrawler.cpp:73
+Breakpoint 1 at 0x4017ad: file webcrawler.cpp, line 73.
++r -url 1 https://www.housing.purdue.edu/
+Starting program: /u/data/u89/wang2226/cs251/lab2-src/webcrawl -url 1 https://www.housing.purdue.edu/
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+[New Thread 0x7ffff62c7700 (LWP 26575)]
+[Thread 0x7ffff62c7700 (LWP 26575) exited]
+
+Breakpoint 1, WebCrawler::crawl (this=0x7fffffffe280) at webcrawler.cpp:74
+74		wordToHashTable();
++p _urlArray[0]
+$1 = {_url = 0x0, _description = 0x0, html = 0x0, size = 0}
++c
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004022d5 in WebCrawler::writeURLFile (this=0x7fffffffe280, 
+    urlFileName=0x403953 "url.txt") at webcrawler.cpp:281
+281			while(_urlArray[i]._description[j] != '\0'){
++q

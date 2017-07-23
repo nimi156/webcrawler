@@ -1,0 +1,12 @@
+Sat Jul 8 00:33:00 EDT 2017
++r -u http://www.purdue.edu
+Starting program:  -u http://www.purdue.edu
+No executable file specified.
+Use the "file" or "exec-file" command.
++r
+Starting program:  -u http://www.purdue.edu
+No executable file specified.
+Use the "file" or "exec-file" command.
++webcrawler -u http://www.purdue.edu
+Undefined command: "webcrawler".  Try "help".
++q
